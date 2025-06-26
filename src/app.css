@@ -1,2 +1,5 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
+html {
+  scroll-behavior: smooth;
+}
