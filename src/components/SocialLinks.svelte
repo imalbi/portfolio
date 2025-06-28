@@ -11,7 +11,7 @@
 		target="_blank"
 		rel="noopener"
 		aria-label="GitHub"
-		class=" rounded-md bg-purple-700/20 p-3 text-white transition hover:bg-white/20 hover:text-purple-700"
+		class=" rounded-md bg-purple-700/20 p-3 text-white transition hover:scale-105 hover:bg-white/20 hover:text-purple-700 active:scale-95"
 	>
 		<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"
 			><path
@@ -24,7 +24,7 @@
 		target="_blank"
 		rel="noopener"
 		aria-label="LinkedIn"
-		class="rounded-md bg-purple-700/20 p-3 text-white transition hover:bg-white/20 hover:text-purple-700"
+		class="rounded-md bg-purple-700/20 p-3 text-white transition hover:scale-105 hover:bg-white/20 hover:text-purple-700 active:scale-95"
 	>
 		<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"
 			><path
@@ -35,7 +35,7 @@
 	<a
 		href="mailto:your@email.com"
 		aria-label="Email"
-		class="rounded-md bg-purple-700/20 p-3 text-white transition hover:bg-white/20 hover:text-purple-700"
+		class="rounded-md bg-purple-700/20 p-3 text-white transition hover:scale-105 hover:bg-white/20 hover:text-purple-700 active:scale-95"
 	>
 		<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"
 			><path
