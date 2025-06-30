@@ -1,4 +1,10 @@
 <script>
+	import GoalSection from '../components/GoalSection.svelte';
+
+	import AboutSection from '../components/AboutSection.svelte';
+
+	import GoalCard from '../components/GoalCard.svelte';
+
 	import ScrollProgressBar from '../components/ScrollProgressBar.svelte';
 
 	import NebulaSection from '../components/NebulaSection.svelte';
@@ -10,6 +16,9 @@
 	import TopNavBar from '../components/TopNavBar.svelte';
 
 	import SocialLinks from '../components/SocialLinks.svelte';
+	import GlassmorphicCard from '../components/GlassmorphicCard.svelte';
+	import Section from '../components/Section.svelte';
+	import AboutField from '../components/AboutField.svelte';
 
 	import NavButton from '../components/navButton.svelte';
 	import { items } from '../data/nav';
@@ -95,16 +104,23 @@
 		<MobileNav></MobileNav>
 	{/if}
 </header>
+<!-- TopBar spacing-->
 <div class="h-16 bg-slate-950 sm:h-20"></div>
 
 <main class="flex-grow">
+	<!--Hero Section -->
 	<NebulaSection></NebulaSection>
-
-	<section
-		id="about"
-		class="text-foreground relative grid min-h-screen place-content-center overflow-hidden px-4 py-24"
-		style="background: #1e293b; background-image: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.3) 5%, rgba(124, 58, 237, 0.2) 20%, rgba(30, 41, 59, 1) 70%);"
-	>
-		<h1>Ciao</h1>
-	</section>
+	<!-- About Section -->
+	<!-- Needs:-->
+	<!--Animation onMount-->
+	<!--Real IMG and TXT-->
+	<AboutSection></AboutSection>
+	<!-- Goals section -->
+	<!-- Needs:-->
+	<!--Animation onMount-->
+	<!--Real IMG and TXT-->
+	<GoalSection></GoalSection>
 </main>
+
+<style>
+</style>
