@@ -77,4 +77,10 @@
 		opacity: 0;
 		transition: opacity 0.2s;
 	}
+
+	@media (pointer: coarse) {
+		.nebula-cursor {
+			display: none !important;
+		}
+	}
 </style>
