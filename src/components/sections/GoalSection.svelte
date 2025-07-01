@@ -29,10 +29,10 @@
 	<div
 		class="mx-auto mt-3 mb-5 h-[5px] w-24 rounded-full bg-gradient-to-r from-purple-400 via-purple-600 to-violet-700"
 	></div>
-	<div class="flex w-full flex-col md:flex-row md:justify-between md:gap-x-6">
+	<div class="flex w-full flex-col gap-y-3 md:flex-row md:justify-between md:gap-x-6">
 		<GoalCard
 			heading="Short-Term Goal"
-			p="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, animi."
+			p="To secure a meaningful internship at a stimulating company, where I can apply my theoretical knowledge and develop practical, real-world web development skills. My goal is to learn from industry professionals, understand team dynamics, and make active contributions to projects."
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@
 		</GoalCard>
 		<GoalCard
 			heading="Mid-Term Goal"
-			p="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, animi."
+			p="To transition from an intern to a fully-fledged Web Developer. By leveraging the experience and skills gained, I aim to manage projects with increasing autonomy, solve complex problems, and establish myself as a reliable and productive member of the development team."
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@
 		</GoalCard>
 		<GoalCard
 			heading="Long-Term Goal"
-			p="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, aut."
+			p="To achieve a Senior Web Developer position. This entails not only mastering web technologies but also taking on a mentorship role for junior colleagues, leading architectural and strategic project decisions, and driving continuous innovation within the company."
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

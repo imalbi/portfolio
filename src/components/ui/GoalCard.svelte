@@ -4,13 +4,13 @@
 </script>
 
 <GlassmorphicCard>
-	<div class="flex flex-row items-end gap-2">
+	<div class="mb-2 flex flex-row items-end gap-2">
 		{#if children}
 			{@render children()}
 		{/if}
 		<h3 class=" text-xl font-extrabold text-nowrap">{heading}</h3>
 	</div>
-	<p>{@html p}</p>
+	<p class="text-justify">{@html p}</p>
 </GlassmorphicCard>
 
 <style>

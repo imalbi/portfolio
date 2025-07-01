@@ -1,5 +1,6 @@
 <script>
 	import MobileNav from '../layout/MobileNav.svelte';
+	import LinkGradient from '../ui/LinkGradient.svelte';
 
 	import TopNavBar from '../layout/TopNavBar.svelte';
 
@@ -28,11 +29,7 @@
 			coding.
 		</p>
 		<div class="mt-4 flex flex-wrap justify-center gap-4">
-			<a
-				href="/#projects"
-				class="rounded-full bg-purple-700 px-6 py-2 font-bold text-white shadow transition hover:scale-105 hover:bg-purple-600 active:scale-95"
-				>View Projects</a
-			>
+			<LinkGradient href="#projects">View Projects</LinkGradient>
 			<a
 				href="/#contacts"
 				class="rounded-full border-2 border-purple-400 px-6 py-2 text-center font-bold text-purple-200 transition hover:scale-105 hover:bg-purple-900/30 active:scale-95"

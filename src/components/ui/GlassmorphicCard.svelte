@@ -2,11 +2,8 @@
 	//Glassmorphic Card with Glow Cursor & Reactive Border
 	let { children } = $props();
 	import { onMount } from 'svelte';
-
+	let card, glow;
 	onMount(() => {
-		const card = document.querySelector('.card');
-		const glow = card.querySelector('.glow');
-
 		card.addEventListener('mousemove', (e) => {
 			const rect = card.getBoundingClientRect();
 			const x = e.clientX - rect.left;
@@ -34,9 +31,9 @@
 </script>
 
 <div class="card-container">
-	<div class="card">
+	<div class="card" bind:this={card}>
 		{@render children()}
-		<div class="glow"></div>
+		<div class="glow" bind:this={glow}></div>
 	</div>
 </div>
 
@@ -44,6 +41,7 @@
 	.card-container {
 		width: 100%;
 		z-index: 1;
+		display: flex;
 	}
 
 	/* Agregamos una textura de noise con pseudo-elemento */
@@ -74,6 +72,7 @@
 		transition: transform 0.1s ease;
 		font-family: 'Poppins', sans-serif;
 		z-index: 1;
+		border: 2px solid transparent;
 	}
 
 	.card::before {
@@ -119,5 +118,8 @@
 
 	.card:hover .glow {
 		opacity: 1;
+	}
+	.card:hover {
+		border: 2px solid purple;
 	}
 </style>

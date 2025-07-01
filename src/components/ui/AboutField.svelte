@@ -5,7 +5,7 @@
 
 <div>
 	<div>
-		<h2>{heading}</h2>
+		<h2 class=" font-bold">{heading}</h2>
 	</div>
 	<p class={c}>{text}</p>
 </div>

@@ -6,6 +6,8 @@
 	import HeroSection from '../components/sections/HeroSection.svelte';
 	import AboutSection from '../components/sections/AboutSection.svelte';
 	import GoalSection from '../components/sections/GoalSection.svelte';
+	import ProjectsSection from '../components/sections/ProjectsSection.svelte';
+	import ContactsSection from '../components/sections/ContactsSection.svelte';
 
 	let isVisibleMobile = $state(false);
 
@@ -94,16 +96,20 @@
 <main class="flex-grow">
 	<!--Hero Section -->
 	<HeroSection></HeroSection>
+
+	<ProjectsSection></ProjectsSection>
 	<!-- About Section -->
 	<!-- Needs:-->
 	<!--Animation onMount-->
 	<!--Real IMG and TXT-->
+	<!---->
 	<AboutSection></AboutSection>
 	<!-- Goals section -->
 	<!-- Needs:-->
 	<!--Animation onMount-->
-	<!--Real IMG and TXT-->
 	<GoalSection></GoalSection>
+
+	<ContactsSection></ContactsSection>
 </main>
 
 <style>
