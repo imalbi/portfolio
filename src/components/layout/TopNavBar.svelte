@@ -1,8 +1,8 @@
 <script>
-	import SocialLinks from './SocialLinks.svelte';
+	import SocialLinks from '../ui/SocialLinks.svelte';
 
-	import NavButton from './navButton.svelte';
-	import { items } from '../data/nav';
+	import NavButton from '../ui/navButton.svelte';
+	import { items } from '../../data/nav';
 
 	let isVisibleMobile = $state(false);
 </script>

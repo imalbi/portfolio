@@ -1,6 +1,6 @@
 <script>
 	import '../app.css';
-	import AnimatedCursor from '../components/AnimatedCursor.svelte';
+	import AnimatedCursor from '../components/layout/AnimatedCursor.svelte';
 	let { children } = $props();
 </script>
 

@@ -1,26 +1,23 @@
 <script>
-	import GoalSection from '../components/GoalSection.svelte';
+	import GoalSection from '../components/sections/GoalSection.svelte';
 
-	import AboutSection from '../components/AboutSection.svelte';
+	import AboutSection from '../components/sections/AboutSection.svelte';
 
-	import GoalCard from '../components/GoalCard.svelte';
+	import GoalCard from '../components/ui/GoalCard.svelte';
 
-	import ScrollProgressBar from '../components/ScrollProgressBar.svelte';
+	import ScrollProgressBar from '../components/layout/ScrollProgressBar.svelte';
 
-	import NebulaSection from '../components/NebulaSection.svelte';
+	import NebulaSection from '../components/sections/HeroSection.svelte';
+	import MobileNav from '../components/layout/MobileNav.svelte';
 
-	import Hero from '../components/Hero.svelte';
+	import TopNavBar from '../components/layout/TopNavBar.svelte';
 
-	import MobileNav from '../components/MobileNav.svelte';
+	import SocialLinks from '../components/ui/SocialLinks.svelte';
+	import GlassmorphicCard from '../components/ui/GlassmorphicCard.svelte';
+	import Section from '../components/ui/Section.svelte';
+	import AboutField from '../components/ui/AboutField.svelte';
 
-	import TopNavBar from '../components/TopNavBar.svelte';
-
-	import SocialLinks from '../components/SocialLinks.svelte';
-	import GlassmorphicCard from '../components/GlassmorphicCard.svelte';
-	import Section from '../components/Section.svelte';
-	import AboutField from '../components/AboutField.svelte';
-
-	import NavButton from '../components/navButton.svelte';
+	import NavButton from '../components/ui/navButton.svelte';
 	import { items } from '../data/nav';
 	import { onMount } from 'svelte';
 

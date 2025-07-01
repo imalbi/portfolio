@@ -1,6 +1,6 @@
 <script>
-	import NavButton from './navButton.svelte';
-	import { items } from '../data/nav';
+	import NavButton from '../ui/navButton.svelte';
+	import { items } from '../../data/nav';
 
 	let isVisibleMobile = $state(false);
 </script>

@@ -1,25 +1,10 @@
 <script>
-	import AboutSection from './AboutSection.svelte';
+	import GoalCard from '../ui/GoalCard.svelte';
 
-	import GoalCard from './GoalCard.svelte';
+	import ScrollProgressBar from '../layout/ScrollProgressBar.svelte';
 
-	import ScrollProgressBar from './ScrollProgressBar.svelte';
+	import Section from '../ui/Section.svelte';
 
-	import NebulaSection from './NebulaSection.svelte';
-
-	import Hero from './Hero.svelte';
-
-	import MobileNav from './MobileNav.svelte';
-
-	import TopNavBar from './TopNavBar.svelte';
-
-	import SocialLinks from './SocialLinks.svelte';
-	import GlassmorphicCard from './GlassmorphicCard.svelte';
-	import Section from './Section.svelte';
-	import AboutField from './AboutField.svelte';
-
-	import NavButton from './navButton.svelte';
-	import { items } from '../data/nav';
 	import { onMount } from 'svelte';
 
 	let isVisibleMobile = $state(false);
