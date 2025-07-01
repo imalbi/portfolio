@@ -1,25 +1,11 @@
 <script>
-	import GoalSection from '../components/sections/GoalSection.svelte';
-
-	import AboutSection from '../components/sections/AboutSection.svelte';
-
-	import GoalCard from '../components/ui/GoalCard.svelte';
-
-	import ScrollProgressBar from '../components/layout/ScrollProgressBar.svelte';
-
-	import NebulaSection from '../components/sections/HeroSection.svelte';
-	import MobileNav from '../components/layout/MobileNav.svelte';
-
-	import TopNavBar from '../components/layout/TopNavBar.svelte';
-
-	import SocialLinks from '../components/ui/SocialLinks.svelte';
-	import GlassmorphicCard from '../components/ui/GlassmorphicCard.svelte';
-	import Section from '../components/ui/Section.svelte';
-	import AboutField from '../components/ui/AboutField.svelte';
-
-	import NavButton from '../components/ui/navButton.svelte';
-	import { items } from '../data/nav';
 	import { onMount } from 'svelte';
+	import ScrollProgressBar from '../components/layout/ScrollProgressBar.svelte';
+	import TopNavBar from '../components/layout/TopNavBar.svelte';
+	import MobileNav from '../components/layout/MobileNav.svelte';
+	import HeroSection from '../components/sections/HeroSection.svelte';
+	import AboutSection from '../components/sections/AboutSection.svelte';
+	import GoalSection from '../components/sections/GoalSection.svelte';
 
 	let isVisibleMobile = $state(false);
 
@@ -101,12 +87,13 @@
 		<MobileNav></MobileNav>
 	{/if}
 </header>
+
 <!-- TopBar spacing-->
 <div class="h-16 bg-slate-950 sm:h-20"></div>
 
 <main class="flex-grow">
 	<!--Hero Section -->
-	<NebulaSection></NebulaSection>
+	<HeroSection></HeroSection>
 	<!-- About Section -->
 	<!-- Needs:-->
 	<!--Animation onMount-->
