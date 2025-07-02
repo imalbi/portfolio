@@ -42,9 +42,9 @@
 
 <style>
 	.card-container {
+		height: 100%;
 		width: 100%;
 		z-index: 1;
-		display: flex;
 	}
 
 	/* Agregamos una textura de noise con pseudo-elemento */
@@ -79,7 +79,13 @@
 		z-index: 1;
 		border: 2px solid transparent;
 	}
-
+	/*
+  	Forza il div wrapper aggiunto da svelte-reveal 
+  	ad occupare il 100% dell'altezza disponibile.
+	*/
+	:global(.card-container > div) {
+		height: 100%;
+	}
 	.card::before {
 		content: '';
 		position: absolute;

@@ -42,7 +42,7 @@
 	></div>
 
 	<div
-		class="mx-auto my-8 flex flex-col flex-nowrap items-stretch justify-center gap-8 lg:flex-row"
+		class="mx-auto my-8 flex flex-col flex-nowrap items-stretch justify-center gap-8 lg:grid lg:grid-cols-2"
 	>
 		<GlassmorphicCard>
 			<h2 class="pb-4 text-2xl font-bold tracking-wide text-white uppercase">
@@ -111,6 +111,7 @@
 				</div>
 			</div>
 			<hr class="my-6 border-t border-purple-700 opacity-50" />
+
 			<div class="mt-4 flex flex-col gap-2">
 				<a
 					href="/resume.pdf"
