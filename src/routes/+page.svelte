@@ -101,8 +101,6 @@
 	<!-- About Section -->
 	<!-- Needs:-->
 	<!--Animation onMount-->
-	<!--Real IMG and TXT-->
-	<!---->
 	<AboutSection></AboutSection>
 	<!-- Goals section -->
 	<!-- Needs:-->

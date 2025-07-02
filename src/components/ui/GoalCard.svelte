@@ -4,7 +4,7 @@
 </script>
 
 <GlassmorphicCard>
-	<div class="mb-2 flex flex-row items-end gap-2">
+	<div class="mb-2 flex flex-row items-end gap-2 p-2 pb-4">
 		{#if children}
 			{@render children()}
 		{/if}
@@ -12,6 +12,3 @@
 	</div>
 	<p class="text-justify">{@html p}</p>
 </GlassmorphicCard>
-
-<style>
-</style>

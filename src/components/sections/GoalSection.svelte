@@ -29,7 +29,9 @@
 	<div
 		class="mx-auto mt-3 mb-5 h-[5px] w-24 rounded-full bg-gradient-to-r from-purple-400 via-purple-600 to-violet-700"
 	></div>
-	<div class="flex w-full flex-col gap-y-3 md:flex-row md:justify-between md:gap-x-6">
+	<div
+		class="mx-auto my-8 flex flex-col flex-nowrap items-stretch justify-center gap-8 lg:w-[80%] lg:flex-row"
+	>
 		<GoalCard
 			heading="Short-Term Goal"
 			p="To secure a meaningful internship at a stimulating company, where I can apply my theoretical knowledge and develop practical, real-world web development skills. My goal is to learn from industry professionals, understand team dynamics, and make active contributions to projects."
