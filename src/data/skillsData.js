@@ -45,6 +45,11 @@ export const skillCategories = [
 				text: 'Python'
 			},
 			{
+				logo: 'https://img.icons8.com/ios-filled/50/database.png',
+				alt: 'Database Design',
+				text: 'Database Design'
+			},
+			{
 				logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
 				alt: 'MySQL',
 				text: 'MySQL'
