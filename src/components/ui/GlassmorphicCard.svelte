@@ -2,6 +2,7 @@
 	//Glassmorphic Card with Glow Cursor & Reactive Border
 	let { children } = $props();
 	import { onMount } from 'svelte';
+	import { reveal } from 'svelte-reveal';
 	let card, glow;
 	onMount(() => {
 		card.addEventListener('mousemove', (e) => {
@@ -31,8 +32,10 @@
 </script>
 
 <div class="card-container">
-	<div class="card" bind:this={card}>
-		{@render children()}
+	<div class="card sr__hide" bind:this={card} use:reveal={{ preset: 'scale', scale: 0.1 }}>
+		<div>
+			{@render children()}
+		</div>
 		<div class="glow" bind:this={glow}></div>
 	</div>
 </div>
@@ -60,6 +63,8 @@
 	}
 
 	.card {
+		height: 100%;
+		width: 100%;
 		position: relative;
 		padding: 2em;
 		color: white;
