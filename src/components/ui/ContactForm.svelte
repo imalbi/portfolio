@@ -37,7 +37,7 @@
 </script>
 
 <GlassmorphicCard>
-	<h2 class="pb-4 text-2xl font-bold">Contact me</h2>
+	<h2 class="pb-4 text-2xl font-bold">Get In Touch</h2>
 	<form onsubmit={sendEmail} class="flex h-full flex-col gap-2">
 		<label for="fullName">Full Name <span class="text-red-400">*</span></label>
 		<input

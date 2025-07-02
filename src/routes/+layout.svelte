@@ -3,30 +3,27 @@
 	import { activeSection } from '../stores/navigationStore';
 	import '../app.css';
 	import AnimatedCursor from '../components/layout/AnimatedCursor.svelte';
+	import Footer from '../components/layout/Footer.svelte';
 	let { children } = $props();
 
 	onMount(() => {
-		// Get all section elements
 		const sections = document.querySelectorAll('section[id]');
 
-		// Create intersection observer
+		if (sections.length === 0) return;
+
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
-					// When section is more than 50% visible
 					if (entry.isIntersecting) {
-						// Update active section in store
-						$activeSection = entry.target.id;
+						activeSection.set(entry.target.id);
 					}
 				});
 			},
 			{
-				rootMargin: '-20% 0px -70% 0px', // Consider section visible when in middle 50% of screen
-				threshold: 0.1
+				rootMargin: '-40% 0px -60% 0px'
 			}
 		);
 
-		// Start observing all sections
 		sections.forEach((section) => {
 			observer.observe(section);
 		});
@@ -41,3 +38,4 @@
 
 <AnimatedCursor></AnimatedCursor>
 {@render children()}
+<Footer />

@@ -29,7 +29,7 @@
 <ScrollProgressBar></ScrollProgressBar>
 
 <header
-	class="fixed top-0 right-0 left-0 z-50 w-full border-b border-transparent bg-slate-950/80 transition-all duration-300 ease-in-out"
+	class="fixed top-0 right-0 left-0 z-50 w-full border-b border-transparent bg-slate-950/40 transition-all duration-300 ease-in-out"
 >
 	<div class="container mx-auto sm:px-6 lg:px-8">
 		<div class="flex h-16 items-center justify-between px-2 sm:h-20">
