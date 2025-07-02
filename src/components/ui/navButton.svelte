@@ -1,14 +1,16 @@
 <script>
 	import { page } from '$app/stores';
-	let { text, href } = $props();
+	import { onMount, onDestroy } from 'svelte';
+	import { activeSection } from '../../stores/navigationStore';
 
+	let { text, href } = $props();
+	const sectionId = href.replace('#', ''); // Remove the # from href
+
+	// Use both URL hash and active section store to determine active state
 	let isActive = $derived(
-		$page.url.hash === href ||
-			// OPPURE, vero se:
-			// 1. L'href del link è `#hero`
-			// 2. Il percorso della pagina è `/`
-			// 3. Non c'è nessun hash nell'URL (stringa vuota)
-			(href === '#hero' && $page.url.pathname === '/' && $page.url.hash === '')
+		$activeSection === sectionId ||
+			// Special case for home/hero section
+			$activeSection === ''
 	);
 
 	let c = $derived(
@@ -18,6 +20,6 @@
 	);
 </script>
 
-<li class=" w-full list-none">
+<li class="w-full list-none">
 	<a class={c} {href}><span>{text}</span></a>
 </li>
