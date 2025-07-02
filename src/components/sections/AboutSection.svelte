@@ -21,6 +21,17 @@
 		update();
 		return () => window.removeEventListener('scroll', update);
 	});
+
+	function getAge() {
+		const birthDate = new Date('2000-08-31');
+		const today = new Date();
+		let age = today.getFullYear() - birthDate.getFullYear();
+		const m = today.getMonth() - birthDate.getMonth();
+		if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+			age--;
+		}
+		return age;
+	}
 </script>
 
 <Section id="about">
@@ -42,7 +53,7 @@
 				<div class="mx-auto grid w-[90%] grid-cols-2 px-3 pt-3">
 					<AboutField heading="Name" text="Alberto Cerqua"></AboutField>
 					<AboutField heading="Location" text="Mompantero, Torino, Italia"></AboutField>
-					<AboutField heading="Age" text="25"></AboutField>
+					<AboutField heading="Age" text={getAge()}></AboutField>
 					<AboutField heading="Availability" text="Open to opportunities"></AboutField>
 				</div>
 			</GlassmorphicCard>
