@@ -4,8 +4,6 @@
 
 	import TopNavBar from '../layout/TopNavBar.svelte';
 
-	import SocialLinks from '../ui/SocialLinks.svelte';
-
 	import NavButton from '../ui/navButton.svelte';
 	import { items } from '../../data/nav';
 
@@ -16,27 +14,32 @@
 	id="hero"
 	class="nebula-bg text-foreground relative grid min-h-screen place-content-center overflow-hidden px-4 py-24"
 >
-	<div class="mx-auto flex max-w-2xl flex-col items-center gap-6 px-8 md:py-10">
+	<div class="mx-auto flex flex-col items-center gap-6 px-8 md:py-10">
 		<h2 class="text-center text-2xl font-semibold text-purple-400">Hi, I'm</h2>
 		<h1
 			class="text-center text-6xl font-extrabold text-white underline decoration-purple-600 decoration-8 underline-offset-8"
 		>
 			Alberto Cerqua
 		</h1>
-		<h3 class="mt-2 text-center text-4xl font-bold text-slate-300">Wannabe Frontend Developer</h3>
+		<h3 class="mt-2 text-center text-4xl font-bold text-slate-300">Aspiring Frontend Developer</h3>
 		<p class="max-w-xl text-center text-slate-400">
-			Passionate about building beautiful and functional web experiences. Always learning, always
-			coding.
+			I'm learning web development and focusing on building user-friendly interfaces with Svelte,
+			JavaScript, and CSS. I enjoy problem-solving and am committed to growing as a frontend
+			developer.
 		</p>
 		<div class="mt-4 flex flex-wrap justify-center gap-4">
-			<LinkGradient href="#projects">View Projects</LinkGradient>
+			<a
+				href="/#about"
+				class="rounded-full border-2 border-purple-400 px-6 py-2 text-center font-bold text-purple-200 transition hover:scale-105 hover:bg-purple-900/30 focus:ring-2 focus:ring-purple-400 focus:outline-none active:scale-95"
+				>About Me</a
+			>
 			<a
 				href="/#contacts"
-				class="rounded-full border-2 border-purple-400 px-6 py-2 text-center font-bold text-purple-200 transition hover:scale-105 hover:bg-purple-900/30 active:scale-95"
+				class="rounded-full border-2 border-purple-400 px-6 py-2 text-center font-bold text-purple-200 transition hover:scale-105 hover:bg-purple-900/30 focus:ring-2 focus:ring-purple-400 focus:outline-none active:scale-95"
 				>Contact me</a
 			>
 		</div>
-		<SocialLinks />
+		<LinkGradient href="#projects">View Projects</LinkGradient>
 	</div>
 </section>
 
