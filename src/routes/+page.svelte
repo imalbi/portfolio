@@ -8,6 +8,7 @@
 	import GoalSection from '../components/sections/GoalSection.svelte';
 	import ProjectsSection from '../components/sections/ProjectsSection.svelte';
 	import ContactsSection from '../components/sections/ContactsSection.svelte';
+	import { activeSection } from '../stores/navigationStore';
 
 	let isVisibleMobile = $state(false);
 
@@ -34,13 +35,15 @@
 	<div class="container mx-auto sm:px-6 lg:px-8">
 		<div class="flex h-16 items-center justify-between px-2 sm:h-20">
 			<div class="flex items-center" id="HomeLogo">
-				<a href="/#hero" aria-label="Home" class="flex items-center">
-					<span
-						class="bg-gradient-to-br from-purple-400 via-purple-600 to-violet-500 bg-clip-text text-2xl font-extrabold tracking-widest text-transparent select-none"
-					>
-						AC
-					</span>
-				</a>
+				{#if $activeSection != 'hero'}
+					<a href="/#hero" aria-label="Home" class="flex items-center"
+						><span
+							class="bg-gradient-to-br from-purple-400 via-purple-600 to-violet-500 bg-clip-text text-2xl font-extrabold tracking-widest text-transparent select-none"
+						>
+							AC
+						</span>
+					</a>
+				{/if}
 			</div>
 
 			<TopNavBar></TopNavBar>
