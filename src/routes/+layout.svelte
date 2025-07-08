@@ -4,6 +4,7 @@
 	import '../app.css';
 	import Footer from '../components/layout/Footer.svelte';
 	import SocialLinks from '../components/ui/SocialLinks.svelte';
+	import PuntoLuminoso from '../components/layout/PuntoLuminoso.svelte';
 	let { children } = $props();
 
 	/**
@@ -40,6 +41,7 @@
 	});
 </script>
 
+<PuntoLuminoso></PuntoLuminoso>
 <div class="fixed bottom-0 left-0 z-50 hidden md:block">
 	<SocialLinks />
 </div>
