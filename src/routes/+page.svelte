@@ -15,9 +15,6 @@
 
 <Header></Header>
 
-<!-- TopBar spacing-->
-<div class="h-16 bg-slate-950 sm:h-20"></div>
-
 <main class="flex-grow">
 	<!--Hero Section -->
 	<HeroSection></HeroSection>
