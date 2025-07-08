@@ -11,23 +11,7 @@
 	import { activeSection } from '../stores/navigationStore';
 
 	let isVisibleMobile = $state(false);
-
-	let scroll = $state(0);
-
-	// Update scroll progress on scroll
-	onMount(() => {
-		const update = () => {
-			const scrolled = window.scrollY;
-			const height = document.documentElement.scrollHeight - window.innerHeight;
-			scroll = height > 0 ? scrolled / height : 0;
-		};
-		window.addEventListener('scroll', update);
-		update();
-		return () => window.removeEventListener('scroll', update);
-	});
 </script>
-
-<ScrollProgressBar></ScrollProgressBar>
 
 <header
 	class="fixed top-0 right-0 left-0 z-50 w-full border-b border-transparent bg-slate-950/40 transition-all duration-300 ease-in-out"
