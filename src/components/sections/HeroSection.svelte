@@ -1,13 +1,5 @@
 <script>
-	import MobileNav from '../layout/MobileNav.svelte';
 	import LinkGradient from '../ui/LinkGradient.svelte';
-
-	import TopNavBar from '../layout/TopNavBar.svelte';
-
-	import NavButton from '../ui/navButton.svelte';
-	import { items } from '../../data/nav';
-
-	let isVisibleMobile = $state(false);
 </script>
 
 <section

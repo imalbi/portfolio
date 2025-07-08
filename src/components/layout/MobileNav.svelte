@@ -1,8 +1,6 @@
 <script>
 	import NavButton from '../ui/navButton.svelte';
 	import { items } from '../../data/nav';
-
-	let isVisibleMobile = $state(false);
 </script>
 
 <nav class="w-screen border-t-1 border-slate-600 bg-slate-950/60 md:hidden">

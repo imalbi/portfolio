@@ -2,11 +2,14 @@
 	import { onMount } from 'svelte';
 	import { activeSection } from '../stores/navigationStore';
 	import '../app.css';
-	import AnimatedCursor from '../components/layout/AnimatedCursor.svelte';
 	import Footer from '../components/layout/Footer.svelte';
 	import SocialLinks from '../components/ui/SocialLinks.svelte';
 	let { children } = $props();
 
+	/**
+	 * Sets up an IntersectionObserver to track which section is currently visible.
+	 * Updates the `activeSection` store with the id of the section in view.
+	 */
 	onMount(() => {
 		const sections = document.querySelectorAll('section[id]');
 
@@ -47,6 +50,5 @@
 		<a href="#hero" class="font-bold text-white [writing-mode:vertical-lr]">&larr; Back to home</a>
 	{/if}
 </div>
-<AnimatedCursor></AnimatedCursor>
 {@render children()}
 <Footer />

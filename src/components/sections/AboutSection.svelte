@@ -4,24 +4,6 @@
 	import AboutField from '../ui/AboutField.svelte';
 	import MySkills from '../ui/MySkills.svelte';
 
-	import { onMount } from 'svelte';
-
-	let isVisibleMobile = $state(false);
-
-	let scroll = $state(0);
-
-	// Update scroll progress on scroll
-	onMount(() => {
-		const update = () => {
-			const scrolled = window.scrollY;
-			const height = document.documentElement.scrollHeight - window.innerHeight;
-			scroll = height > 0 ? scrolled / height : 0;
-		};
-		window.addEventListener('scroll', update);
-		update();
-		return () => window.removeEventListener('scroll', update);
-	});
-
 	function getAge() {
 		const birthDate = new Date('2000-08-31');
 		const today = new Date();
