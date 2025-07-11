@@ -1,37 +1,46 @@
 <script>
 	import LinkGradient from '../ui/LinkGradient.svelte';
+	const buttonClass =
+		'rounded-full border-2 border-purple-400 px-6 py-2 text-center font-bold text-purple-200 transition hover:scale-105 hover:bg-purple-900/30 focus:ring-2 focus:ring-purple-400 focus:outline-none active:scale-95';
 </script>
 
 <section
 	id="hero"
-	class="nebula-bg text-foreground relative grid min-h-screen place-content-center overflow-hidden px-4 py-24"
+	class="nebula-bg flex min-h-screen flex-col justify-center overflow-hidden px-4 py-24 sm:flex-row sm:gap-8"
 >
-	<div class="mx-auto flex flex-col items-center gap-6 px-8 md:py-10">
-		<h2 class="text-center text-2xl font-semibold text-purple-400">Hi, I'm</h2>
+	<div
+		class="order-2 mb-6 flex items-end justify-center px-8 sm:order-2 sm:mb-0 sm:items-center sm:px-0"
+	>
+		<img
+			src="/photo.webp"
+			alt="Portrait of Alberto Cerqua, aspiring frontend developer"
+			loading="lazy"
+			class="w-full max-w-xs rounded-full object-cover shadow-[0_4px_20px_rgba(168,85,247,0.5)] transition-transform duration-300 hover:scale-105 hover:shadow-2xl sm:max-w-sm"
+		/>
+	</div>
+
+	<div
+		class="order-3 flex flex-col items-center justify-center gap-6 px-8 sm:order-1 sm:items-start sm:py-10"
+	>
+		<h2 class="text-center text-2xl font-semibold text-purple-400 sm:text-start">Hi, I'm</h2>
 		<h1
-			class="text-center text-6xl font-extrabold text-white underline decoration-purple-600 decoration-8 underline-offset-8"
+			class="text-center text-6xl font-extrabold text-white underline decoration-purple-600 decoration-8 underline-offset-8 sm:text-start"
 		>
 			Alberto Cerqua
 		</h1>
-		<h3 class="mt-2 text-center text-4xl font-bold text-slate-300">Aspiring Frontend Developer</h3>
-		<p class="max-w-xl text-center text-slate-400">
+		<h2 class="mt-2 text-center text-4xl font-bold text-slate-200 sm:text-start">
+			Aspiring Frontend Developer
+		</h2>
+		<p class="max-w-xl text-center text-slate-300 sm:text-start">
 			I'm learning web development and focusing on building user-friendly interfaces with Svelte,
 			JavaScript, and CSS. I enjoy problem-solving and am committed to growing as a frontend
 			developer.
 		</p>
 		<div class="mt-4 flex flex-wrap justify-center gap-4">
-			<a
-				href="/#about"
-				class="rounded-full border-2 border-purple-400 px-6 py-2 text-center font-bold text-purple-200 transition hover:scale-105 hover:bg-purple-900/30 focus:ring-2 focus:ring-purple-400 focus:outline-none active:scale-95"
-				>About Me</a
-			>
-			<a
-				href="/#contacts"
-				class="rounded-full border-2 border-purple-400 px-6 py-2 text-center font-bold text-purple-200 transition hover:scale-105 hover:bg-purple-900/30 focus:ring-2 focus:ring-purple-400 focus:outline-none active:scale-95"
-				>Contact me</a
-			>
+			<a href="/#about" class={buttonClass}>About Me</a>
+			<a href="/#contacts" class={buttonClass}>Contact me</a>
+			<LinkGradient href="#projects">View Projects</LinkGradient>
 		</div>
-		<LinkGradient href="#projects">View Projects</LinkGradient>
 	</div>
 </section>
 
