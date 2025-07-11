@@ -2,7 +2,11 @@
 	import TopNavBar from './TopNavBar.svelte';
 	import MobileNav from './MobileNav.svelte';
 	import { activeSection } from '../../stores/navigationStore';
+	import { onMount } from 'svelte';
 	let isVisibleMobile = $state(false);
+
+	// Only show logo after mount, when we have a valid section, and when not on hero section
+	let showLogo = $derived($activeSection !== 'hero');
 </script>
 
 <header
@@ -11,7 +15,7 @@
 	<div class="container mx-auto sm:px-6 lg:px-8">
 		<div class="flex h-16 items-center justify-between px-2 sm:h-20">
 			<div class="flex items-center" id="HomeLogo">
-				{#if $activeSection != 'hero'}
+				{#if showLogo}
 					<a href="/#hero" aria-label="Home" class="flex items-center"
 						><span
 							class="bg-gradient-to-br from-purple-400 via-purple-600 to-violet-500 bg-clip-text text-2xl font-extrabold tracking-widest text-transparent select-none"
