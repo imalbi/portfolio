@@ -18,14 +18,14 @@
 			src="/photo.webp"
 			alt="Portrait of Alberto Cerqua, aspiring frontend developer"
 			loading="lazy"
-			use:reveal={{ animation: 'slide', x: 80, opacity: 0, delay: 100 }}
+			use:reveal={{ animation: 'slide', x: 80, opacity: 0, delay: 100, threshold: 0.1 }}
 			class="sr__hide w-full max-w-xs rounded-full object-cover shadow-[0_4px_20px_rgba(168,85,247,0.5)] transition-transform duration-300 hover:scale-105 hover:shadow-2xl lg:max-w-lg"
 		/>
 	</div>
 
 	<div class="order-3 flex flex-col items-center justify-center lg:order-1 lg:items-start">
 		<div
-			use:reveal={{ animation: 'slide', x: -80, opacity: 0, delay: 200 }}
+			use:reveal={{ animation: 'slide', x: -80, opacity: 0, delay: 200, threshold: 0.1 }}
 			class=" sr__hide flex flex-col items-center justify-center gap-6 px-8 lg:items-start lg:py-10"
 		>
 			<h2 class="text-center text-2xl font-semibold text-purple-400 lg:text-start">Hi, I'm</h2>
