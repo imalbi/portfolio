@@ -1,10 +1,3 @@
-<script>
-	import NavButton from './navButton.svelte';
-	import { items } from '../../data/nav';
-
-	let isVisibleMobile = $state(false);
-</script>
-
 <div class=" mb-4 ml-4 flex flex-col gap-2">
 	<a
 		href="https://github.com/imalbi"

@@ -1,4 +1,4 @@
-export let myProjects = [
+export const myProjects = [
 	{
 		id: 1,
 		status: 'In Progress',

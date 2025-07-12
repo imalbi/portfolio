@@ -1,16 +1,11 @@
 <script>
 	import GoalCard from '../ui/GoalCard.svelte';
-
 	import Section from '../ui/Section.svelte';
-
-	let isVisibleMobile = $state(false);
+	import SectionTitle from '../ui/SectionTitle.svelte';
 </script>
 
-<Section id="goals"
-	><h1 class=" mb-2 text-center text-5xl font-extrabold text-white">Career Goals</h1>
-	<div
-		class="mx-auto mt-3 mb-5 h-[5px] w-24 rounded-full bg-gradient-to-r from-purple-400 via-purple-600 to-violet-700"
-	></div>
+<Section id="goals">
+	<SectionTitle title="Career Goals"></SectionTitle>
 	<div
 		class="mx-auto my-8 flex flex-col flex-nowrap items-stretch justify-center gap-8 lg:w-[80%] lg:flex-row"
 	>

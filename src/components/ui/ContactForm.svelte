@@ -20,16 +20,16 @@
 		event.preventDefault();
 		if (isSubmitting) return;
 
-		status = 'Invio in corso...';
+		status = 'Sending...';
 		isSubmitting = true;
 
 		try {
 			await emailjs.send(serviceID, templateID, { ...formData }, publicKey);
-			status = 'Messaggio inviato con successo! ✅';
+			status = 'Message sent successfully! ✅';
 			formData = { fullName: '', email: '', subject: '', message: '' };
 		} catch (error) {
-			status = `Errore durante l'invio. Riprova.`;
-			console.error('ERRORE EMAILJS:', error);
+			status = `Error sending message. Please try again.`;
+			console.error('EMAILJS ERROR:', error);
 		} finally {
 			isSubmitting = false;
 		}

@@ -1,4 +1,6 @@
 <script>
+	import SectionTitle from '../ui/SectionTitle.svelte';
+
 	import GlassmorphicCard from '../ui/GlassmorphicCard.svelte';
 	import Section from '../ui/Section.svelte';
 	import AboutField from '../ui/AboutField.svelte';
@@ -17,10 +19,7 @@
 </script>
 
 <Section id="about">
-	<h1 class="mb-2 text-center text-5xl font-extrabold text-white">About Me</h1>
-	<div
-		class="mx-auto mt-3 mb-5 h-[5px] w-24 rounded-full bg-gradient-to-r from-purple-400 via-purple-600 to-violet-700"
-	></div>
+	<SectionTitle title="About Me"></SectionTitle>
 	<div class=" flex flex-col items-center gap-10 md:flex-row">
 		<div class=" md:mx-auto xl:w-[30%]">
 			<GlassmorphicCard>

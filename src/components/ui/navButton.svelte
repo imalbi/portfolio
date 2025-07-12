@@ -1,6 +1,4 @@
 <script>
-	import { page } from '$app/stores';
-	import { onMount, onDestroy } from 'svelte';
 	import { activeSection } from '../../stores/navigationStore';
 
 	let { text, href } = $props();

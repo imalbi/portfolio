@@ -5,14 +5,15 @@
 	import Techs from '../ui/Techs.svelte';
 	import Status from '../ui/Status.svelte';
 	import LinkGradient from '../ui/LinkGradient.svelte';
+	import SectionTitle from '../ui/SectionTitle.svelte';
 </script>
 
 <Section id="projects">
-	<h1 class="mb-2 text-center text-5xl font-extrabold text-white">Projects</h1>
+	<SectionTitle title="Projects"></SectionTitle>
+
 	<div
-		class="mx-auto mt-3 mb-5 h-[5px] w-24 rounded-full bg-gradient-to-r from-purple-400 via-purple-600 to-violet-700"
-	></div>
-	<div class="mx-auto grid grid-cols-1 gap-6 md:grid-cols-2 lg:max-w-6xl lg:grid-cols-2 xl:grid-cols-3">
+		class="mx-auto grid grid-cols-1 gap-6 md:grid-cols-2 lg:max-w-6xl lg:grid-cols-2 xl:grid-cols-3"
+	>
 		{#each myProjects as project (project.id)}
 			<GlassmorphicCard>
 				<div class="flex h-full flex-col">
@@ -30,7 +31,9 @@
 							<Status status={project.status}></Status>
 							<Techs techs={project.techs}></Techs>
 						</div>
-						<div class="mt-4 flex items-center justify-center gap-4 border-t-2 border-slate-600 pt-4">
+						<div
+							class="mt-4 flex items-center justify-center gap-4 border-t-2 border-slate-600 pt-4"
+						>
 							<a
 								class="rounded-full bg-slate-800 px-4 py-2 text-sm text-white shadow transition hover:scale-105 active:scale-95"
 								href={project.git}>View Code</a

@@ -47,7 +47,7 @@
 		z-index: 1;
 	}
 
-	/* Agregamos una textura de noise con pseudo-elemento */
+	/* Add noise texture with pseudo-element */
 	.card::after {
 		content: '';
 		position: absolute;
