@@ -1,33 +1,50 @@
-# sv
+# My Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This is my personal portfolio website built with SvelteKit and Tailwind CSS. It showcases my projects, skills, and provides a way to contact me.
 
-## Creating a project
+## Technologies Used
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Frontend:**
+  - [SvelteKit](https://kit.svelte.dev/)
+  - [Tailwind CSS](https://tailwindcss.com/)
+- **Deployment:**
+  - Vercel (or your preferred hosting service)
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Project Structure
 
-# create a new project in my-app
-npx sv create my-app
-```
+- **`src/`**: This directory contains all the source code for the application.
+  - **`components/`**: This directory contains all the Svelte components used in the application.
+    - **`layout/`**: Components related to the overall layout of the site (Header, Footer, etc.).
+    - **`sections/`**: Components for the different sections of the portfolio (Hero, About, Projects, etc.).
+    - **`ui/`**: Reusable UI components (Buttons, Cards, etc.).
+  - **`data/`**: This directory contains data for the projects and skills.
+  - **`lib/`**: This directory contains utility functions.
+  - **`routes/`**: This directory contains the SvelteKit routes for the application.
+  - **`stores/`**: This directory contains Svelte stores for state management.
+- **`static/`**: This directory contains static assets like images and fonts.
+- **`package.json`**: This file lists the project dependencies and scripts.
+- **`svelte.config.js`**: This is the SvelteKit configuration file.
+- **`vite.config.js`**: This is the Vite configuration file.
 
-## Developing
+## Getting Started
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/my-portfolio.git
+   ```
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3. **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+This will start a development server at `http://localhost:5173`.
 
-```bash
-npm run dev
+## Building for Production
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+To create a production version of the app, run:
 
 ```bash
 npm run build
@@ -35,4 +52,6 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Deployment
+
+This project can be easily deployed to Vercel, Netlify, or any other static hosting service. Refer to the SvelteKit documentation for more details on deployment.
