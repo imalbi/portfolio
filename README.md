@@ -1,5 +1,10 @@
 # My Portfolio
 
+<p align="center">
+  <img src="https://svelte.dev/svelte-logo-horizontal.svg" alt="SvelteKit Logo" width="200"/>
+  <img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b.svg" alt="Tailwind CSS Logo" width="50"/>
+</p>
+
 This is my personal portfolio website built with SvelteKit and Tailwind CSS. It showcases my projects, skills, and provides a way to contact me.
 
 ## Technologies Used
