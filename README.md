@@ -1,9 +1,7 @@
 # My Portfolio
 
-<p align="center">
-  <img src="https://svelte.dev/svelte-logo-horizontal.svg" alt="SvelteKit Logo" width="200"/>
-  <img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b.svg" alt="Tailwind CSS Logo" width="50"/>
-</p>
+![Svelte](https://img.shields.io/badge/Svelte-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 This is my personal portfolio website built with SvelteKit and Tailwind CSS. It showcases my projects, skills, and provides a way to contact me.
 
