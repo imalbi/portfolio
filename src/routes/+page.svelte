@@ -4,7 +4,6 @@
 	import MobileNav from '../components/layout/MobileNav.svelte';
 	import HeroSection from '../components/sections/HeroSection.svelte';
 	import AboutSection from '../components/sections/AboutSection.svelte';
-	import GoalSection from '../components/sections/GoalSection.svelte';
 	import ProjectsSection from '../components/sections/ProjectsSection.svelte';
 	import ContactsSection from '../components/sections/ContactsSection.svelte';
 	import { activeSection } from '../stores/navigationStore';
@@ -24,10 +23,6 @@
 	<!-- Needs:-->
 	<!--Animation onMount-->
 	<AboutSection></AboutSection>
-	<!-- Goals section -->
-	<!-- Needs:-->
-	<!--Animation onMount-->
-	<GoalSection></GoalSection>
 
 	<ContactsSection></ContactsSection>
 </main>
