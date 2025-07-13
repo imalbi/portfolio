@@ -45,7 +45,9 @@
 </div>
 <div class="fixed right-4 bottom-4 z-50 hidden md:block">
 	{#if $activeSection == 'hero'}
-		<a href="#projects" class="font-bold text-white [writing-mode:vertical-lr]">See more &rarr;</a>
+		<a href="#projects" class="font-bold text-white [writing-mode:vertical-lr]"
+			>My Projects &rarr;</a
+		>
 	{:else}
 		<a href="#hero" class="font-bold text-white [writing-mode:vertical-lr]">&larr; Back to home</a>
 	{/if}

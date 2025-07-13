@@ -32,7 +32,11 @@
 </script>
 
 <div class="card-container">
-	<div class="card sr__hide" bind:this={card} use:reveal={{ preset: 'scale', scale: 0.1 }}>
+	<div
+		class="card sr__hide"
+		bind:this={card}
+		use:reveal={{ preset: 'scale', scale: 0.1, threshold: 0.1 }}
+	>
 		<div>
 			{@render children()}
 		</div>
