@@ -90,6 +90,15 @@
 	:global(.card-container > div) {
 		height: 100%;
 	}
+	:global(.card-container > div > div) {
+		height: 100%;
+	}
+	:global(.card-container > div > div > div) {
+		height: 100%;
+	}
+	:global(.card-container > div > div > div > div) {
+		height: 100%;
+	}
 	.card::before {
 		content: '';
 		position: absolute;

@@ -37,60 +37,62 @@
 </script>
 
 <GlassmorphicCard>
-	<h2 class="pb-4 text-2xl font-bold">Get In Touch</h2>
-	<form onsubmit={sendEmail} class="flex h-full flex-col gap-2">
-		<label for="fullName">Full Name <span class="text-red-400">*</span></label>
-		<input
-			type="text"
-			name="fullName"
-			id="fullName"
-			required
-			placeholder="Your Name"
-			bind:value={formData.fullName}
-		/>
+	<div class="flex h-full flex-col gap-4">
+		<h2 class="pb-4 text-2xl font-bold">Get In Touch</h2>
+		<form onsubmit={sendEmail} class="flex h-full flex-col gap-2">
+			<label for="fullName">Full Name <span class="text-red-400">*</span></label>
+			<input
+				type="text"
+				name="fullName"
+				id="fullName"
+				required
+				placeholder="Your Name"
+				bind:value={formData.fullName}
+			/>
 
-		<label for="email">Email <span class="text-red-400">*</span></label>
-		<input
-			type="email"
-			name="email"
-			id="email"
-			required
-			placeholder="you@email.com"
-			bind:value={formData.email}
-		/>
+			<label for="email">Email <span class="text-red-400">*</span></label>
+			<input
+				type="email"
+				name="email"
+				id="email"
+				required
+				placeholder="you@email.com"
+				bind:value={formData.email}
+			/>
 
-		<label for="subject">Subject <span class="text-red-400">*</span></label>
-		<input
-			type="text"
-			name="subject"
-			id="subject"
-			required
-			placeholder="Subject"
-			bind:value={formData.subject}
-		/>
+			<label for="subject">Subject <span class="text-red-400">*</span></label>
+			<input
+				type="text"
+				name="subject"
+				id="subject"
+				required
+				placeholder="Subject"
+				bind:value={formData.subject}
+			/>
 
-		<label for="message">Message <span class="text-red-400">*</span></label>
-		<textarea
-			name="message"
-			id="message"
-			required
-			placeholder="Type your message"
-			class="flex-grow"
-			bind:value={formData.message}
-		></textarea>
+			<label for="message">Message <span class="text-red-400">*</span></label>
+			<textarea
+				name="message"
+				id="message"
+				required
+				placeholder="Type your message"
+				class="flex-grow"
+				bind:value={formData.message}
+			></textarea>
 
-		{#if status}
-			<p class="text-center font-semibold">{status}</p>
-		{/if}
+			{#if status}
+				<p class="text-center font-semibold">{status}</p>
+			{/if}
 
-		<button
-			class="mt-auto rounded-full bg-purple-700 px-6 py-2 font-bold text-white shadow transition hover:scale-105 hover:bg-purple-600 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
-			type="submit"
-			disabled={isSubmitting}
-		>
-			🚀 Send Message
-		</button>
-	</form>
+			<button
+				class="mt-auto rounded-full bg-purple-700 px-6 py-2 font-bold text-white shadow transition hover:scale-105 hover:bg-purple-600 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+				type="submit"
+				disabled={isSubmitting}
+			>
+				🚀 Send Message
+			</button>
+		</form>
+	</div>
 </GlassmorphicCard>
 
 <style>

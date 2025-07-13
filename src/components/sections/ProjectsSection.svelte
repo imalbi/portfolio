@@ -22,20 +22,19 @@
 						src={project.img}
 						alt={`${project.id} project image`}
 					/>
-					<div class="flex flex-1 flex-col p-6">
-						<h1 class="mb-2 text-2xl font-bold text-purple-500">
+					<div class="flex h-full flex-1 flex-col">
+						<h1 class="mt-2 mb-2 text-2xl font-bold text-purple-500">
 							{project.title}
 						</h1>
-						<p class="mb-4 flex-1 text-slate-300">{project.desc}</p>
-						<div class="space-y-3">
-							<Status status={project.status}></Status>
-							<Techs techs={project.techs}></Techs>
-						</div>
+						<p class="mb-4 min-h-[3rem] flex-1 text-slate-300">{project.desc}</p>
+						<Status status={project.status}></Status>
+						<Techs techs={project.techs}></Techs>
 						<div
-							class="mt-4 flex items-center justify-center gap-4 border-t-2 border-slate-600 pt-4"
+							class="mt-4 flex h-full items-center justify-center gap-4 border-t-2 border-slate-600 pt-4"
+							id="project-link"
 						>
 							<a
-								class="rounded-full border-2 border-purple-400 px-6 py-2 text-center font-bold text-purple-200 transition hover:scale-105 hover:bg-purple-900/30 focus:ring-2 focus:ring-purple-400 focus:outline-none active:scale-95"
+								class="rounded-full border-2 border-purple-400 px-6 py-2 text-center font-bold text-nowrap text-purple-200 transition hover:scale-105 hover:bg-purple-900/30 focus:ring-2 focus:ring-purple-400 focus:outline-none active:scale-95"
 								href={project.git}
 							>
 								<svg
