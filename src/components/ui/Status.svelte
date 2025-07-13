@@ -4,7 +4,7 @@
 	let completed = $derived(status == 'Completed' ? true : false);
 </script>
 
-<div class="flex items-center">
+<div class="mt-2 flex h-full items-center">
 	{#if completed}
 		<span class="text-green-500"
 			><svg
