@@ -1,0 +1,419 @@
+<title>Alberto Cerqua Portfolio: Visual Direction</title>
+<style>
+@font-face{font-family:'ArchivoBlack';src:url(data:font/woff2;base64,__ARCHIVO_BLACK__) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Archivo';src:url(data:font/woff2;base64,__ARCHIVO__) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:'PlexMono';src:url(data:font/woff2;base64,__PLEX_400__) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'PlexMono';src:url(data:font/woff2;base64,__PLEX_600__) format('woff2');font-weight:600;font-style:normal;font-display:swap}
+
+:root{
+  --paper:#F4F4F0;
+  --ink:#0A0A0A;
+  --muted:#6B6B66;
+  --hazard:#E61919;
+  --gut:clamp(1.5rem,5vw,3rem);
+  --display:'ArchivoBlack',Arial,sans-serif;
+  --body:'Archivo',Helvetica,Arial,sans-serif;
+  --data:'PlexMono',ui-monospace,monospace;
+}
+
+/* Deliberate single visual world: this page emulates print stock.
+   No dark variant by design, per the project's substrate lock. */
+
+*{box-sizing:border-box}
+.pg{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+  overflow-x:hidden;
+}
+.grain{
+  position:fixed;inset:0;z-index:60;pointer-events:none;
+  opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:1400px;margin:0 auto;padding-inline:var(--gut)}
+
+/* ---- type roles ---- */
+.d{font-family:var(--display);text-transform:uppercase;letter-spacing:-.04em;line-height:.86}
+.m{font-family:var(--data);text-transform:uppercase;letter-spacing:.08em;font-size:11px;line-height:1.35}
+.m-lg{font-family:var(--data);text-transform:uppercase;letter-spacing:.06em;font-size:13px;line-height:1.4}
+.muted{color:var(--muted)}
+.prose{max-width:62ch;font-size:1.0625rem;line-height:1.6}
+
+a{color:inherit}
+a:focus-visible,.row:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+/* ---- header ---- */
+.hdr{
+  height:64px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--ink);
+}
+.hdr nav{display:flex;gap:1.75rem}
+.hdr a{text-decoration:none}
+.hdr nav a:hover{color:var(--hazard)}
+
+/* ---- masthead ---- */
+.mast{padding-block:clamp(2.5rem,6vw,5rem) clamp(2rem,4vw,3rem);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gut);align-items:end}
+.mast h1{grid-column:1/9;font-size:clamp(2.75rem,10.5vw,8.75rem);margin:0}
+.portrait{grid-column:9/13;aspect-ratio:4/5;border:1px solid var(--ink);
+  display:flex;align-items:flex-end;padding:.75rem;
+  background-color:var(--paper);
+  background-image:radial-gradient(var(--ink) 32%,transparent 33%);
+  background-size:7px 7px;background-position:0 0;
+}
+.portrait .m{background:var(--paper);padding:.25rem .4rem}
+.mastmeta{grid-column:1/13;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;
+  border-top:2px solid var(--ink);padding-top:.6rem;margin-top:.5rem}
+
+/* ---- generic section ---- */
+.sec{padding-block:clamp(2.75rem,5vw,4.5rem)}
+.sec + .sec{border-top:1px solid var(--ink)}
+.lbl{font-family:var(--data);text-transform:uppercase;letter-spacing:.12em;font-size:11px;
+  font-weight:600;margin:0 0 1.5rem;color:var(--muted)}
+
+/* ---- index ---- */
+.index{border-block:2px solid var(--ink);background:var(--ink);
+  display:flex;flex-direction:column;gap:1px}
+.row{background:var(--paper);text-decoration:none;display:grid;
+  grid-template-columns:4.5rem 1fr auto;gap:var(--gut);align-items:center;
+  padding:clamp(1.1rem,2.5vw,1.6rem) .25rem;transition:background .12s linear,color .12s linear}
+.row:hover{background:var(--ink);color:var(--paper)}
+.row:hover .num,.row:hover .stack{color:inherit}
+.num{font-family:var(--data);font-weight:600;font-size:1.25rem;color:var(--hazard);letter-spacing:0}
+.row h3{font-family:var(--display);text-transform:uppercase;letter-spacing:-.025em;
+  font-size:clamp(1.4rem,3.6vw,2.5rem);line-height:1;margin:0}
+.stack{font-family:var(--data);text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--muted);text-align:right}
+
+/* ---- oss ---- */
+.oss{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gut);align-items:start}
+.oss .who{grid-column:1/6}
+.oss .what{grid-column:6/13}
+.oss h3{font-family:var(--display);text-transform:uppercase;letter-spacing:-.03em;
+  font-size:clamp(1.5rem,3.4vw,2.25rem);line-height:.95;margin:0 0 .5rem;word-break:break-word}
+.pr{display:inline-block;border:2px solid var(--ink);padding:.3rem .55rem;text-decoration:none;font-weight:600}
+.pr:hover{background:var(--hazard);border-color:var(--hazard);color:var(--paper)}
+
+/* ---- capabilities ---- */
+.caps{background:var(--ink);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--ink)}
+.cap{background:var(--paper);padding:clamp(1.1rem,2.4vw,1.75rem)}
+.cap h3{margin:0 0 .9rem;font-family:var(--data);text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;font-weight:600;color:var(--hazard)}
+.cap p{margin:0;font-family:var(--data);text-transform:uppercase;letter-spacing:.05em;
+  font-size:12px;line-height:1.85}
+
+/* ---- case study preview ---- */
+.flag{border:2px solid var(--hazard);color:var(--hazard);padding:.5rem .7rem;margin-bottom:2.5rem;
+  display:flex;gap:.7rem;flex-wrap:wrap}
+.case-mast{display:flex;flex-wrap:wrap;align-items:baseline;gap:1rem 1.5rem;margin-bottom:.6rem}
+.case-mast .num{font-size:1.5rem}
+.case-mast h2{font-family:var(--display);text-transform:uppercase;letter-spacing:-.035em;
+  font-size:clamp(2rem,6vw,4.25rem);line-height:.9;margin:0}
+.case-meta{border-top:2px solid var(--ink);padding-top:.6rem;display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.75rem}
+.blk{margin-bottom:2.75rem}
+.blk > h3{font-family:var(--data);text-transform:uppercase;letter-spacing:.12em;font-size:11px;
+  font-weight:600;margin:0 0 .9rem;color:var(--muted)}
+.cons{list-style:none;padding:0;margin:0;max-width:70ch}
+.cons li{padding-left:1.6rem;position:relative;margin-bottom:.45rem;font-size:1.0625rem}
+.cons li::before{content:"";position:absolute;left:0;top:.72em;width:.8rem;height:2px;background:var(--hazard)}
+
+.figure{border:1px solid var(--ink);padding:clamp(1rem,2.5vw,1.75rem);overflow-x:auto}
+.figure svg{display:block;min-width:660px;width:100%;height:auto}
+.figcap{margin-top:.8rem}
+
+.tbl{width:100%;border-collapse:collapse;font-size:.9375rem}
+.tbl th{font-family:var(--data);text-transform:uppercase;letter-spacing:.1em;font-size:11px;
+  font-weight:600;color:var(--muted);text-align:left;padding:0 1.25rem .6rem 0;
+  border-bottom:2px solid var(--ink);vertical-align:bottom}
+.tbl td{padding:.85rem 1.25rem .85rem 0;border-bottom:1px solid var(--ink);vertical-align:top;line-height:1.45}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td:first-child{font-weight:600}
+.tbl td.rej{color:var(--muted)}
+.tblwrap{overflow-x:auto}
+.tbl.stackt td:first-child{font-family:var(--data);text-transform:uppercase;letter-spacing:.06em;
+  font-size:12px;font-weight:600;white-space:nowrap;width:1%;padding-right:2.5rem}
+
+/* ---- footer ---- */
+.ftr{border-top:2px solid var(--ink);padding-block:2rem 3rem;
+  display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between}
+.ftr a{text-decoration:none;border-bottom:1px solid var(--muted)}
+.ftr a:hover{color:var(--hazard);border-color:var(--hazard)}
+.ftr .links{display:flex;flex-wrap:wrap;gap:1.5rem}
+
+/* ---- notes ---- */
+.notes{border:1px solid var(--muted);padding:clamp(1.1rem,2.4vw,1.75rem);margin-bottom:3rem}
+.notes h3{margin:0 0 .9rem}
+.notes ol{margin:0;padding-left:1.2rem;font-size:.9375rem;line-height:1.7;color:var(--muted)}
+
+@media (max-width:900px){
+  .mast h1{grid-column:1/13}
+  .portrait{grid-column:1/7;aspect-ratio:1/1}
+  .oss .who,.oss .what{grid-column:1/13}
+  .caps{grid-template-columns:1fr}
+  .row{grid-template-columns:3.25rem 1fr;gap:1rem}
+  .stack{grid-column:2/3;text-align:left}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation:none !important}
+}
+</style>
+
+<div class="pg">
+<div class="grain"></div>
+
+<div class="wrap">
+
+  <header class="hdr">
+    <a href="#" class="m-lg" style="font-weight:600;letter-spacing:.1em">A. CERQUA</a>
+    <nav class="m">
+      <a href="#index">WORK</a>
+      <a href="#colophon">COLOPHON</a>
+    </nav>
+  </header>
+
+  <section class="mast">
+    <h1 class="d">Alberto<br>Cerqua</h1>
+    <div class="portrait"><span class="m muted">PORTRAIT / 1-BIT DITHER</span></div>
+    <div class="mastmeta">
+      <span class="m-lg" style="font-weight:600">FULL-STACK DEVELOPER</span>
+      <span class="m-lg muted">OPEN TO OPPORTUNITIES</span>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="prose" style="margin:0">I build web and mobile products end to end. Most of my depth sits where the
+    frontend meets real infrastructure: streamed responses, vector retrieval, schema validation at the
+    boundaries, and legacy code that has to keep running while you fix it.</p>
+  </section>
+
+  <section class="sec" id="index">
+    <h2 class="lbl">Selected work</h2>
+    <div class="index">
+      <a class="row" href="#case">
+        <span class="num">001</span>
+        <h3>RAG Pipeline</h3>
+        <span class="stack">PGVECTOR / GEMINI / SSE</span>
+      </a>
+      <a class="row" href="#case">
+        <span class="num">002</span>
+        <h3>Client Platform</h3>
+        <span class="stack">SVELTEKIT / FASTIFY / DRIZZLE</span>
+      </a>
+      <a class="row" href="#case">
+        <span class="num">003</span>
+        <h3>Production Recovery</h3>
+        <span class="stack">LEGACY / TRIAGE / REFACTOR</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 class="lbl">Open source</h2>
+    <div class="oss">
+      <div class="who">
+        <h3>fast-json-stringify</h3>
+        <p class="m muted" style="margin:0 0 1.1rem">FASTIFY ECOSYSTEM</p>
+        <a class="pr m-lg" href="https://github.com/fastify/fast-json-stringify/pull/841">PR #841 / MERGED</a>
+      </div>
+      <div class="what">
+        <p class="prose" style="margin:0">A serialization edge case in the JSON stringifier that Fastify uses on every
+        response. The fix was reviewed and merged by the project maintainer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 class="lbl">Capabilities</h2>
+    <div class="caps">
+      <div class="cap">
+        <h3>Interface</h3>
+        <p>Svelte / SvelteKit / React / React Native / TypeScript / Tailwind CSS</p>
+      </div>
+      <div class="cap">
+        <h3>Services and data</h3>
+        <p>Node.js / Fastify / REST / WebSockets / SSE / Zod / PostgreSQL / Drizzle ORM / MongoDB / Docker</p>
+      </div>
+      <div class="cap">
+        <h3>Retrieval and models</h3>
+        <p>Google Gemini / LangChain / RAG / pgvector / Embeddings / Function calling</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ftr">
+    <div class="links m-lg">
+      <a href="mailto:alberto.cerqua@icloud.com">EMAIL</a>
+      <a href="https://www.linkedin.com/in/alberto-cerqua-433059361/">LINKEDIN</a>
+      <a href="https://github.com/imalbi">GITHUB</a>
+      <a href="#">CV / PDF</a>
+      <a href="#colophon">COLOPHON</a>
+    </div>
+    <span class="m muted">TURIN, ITALY / 2026</span>
+  </footer>
+
+</div>
+
+<div style="border-top:2px solid var(--ink);background:var(--ink);height:8px"></div>
+
+<div class="wrap" id="case">
+  <section class="sec">
+
+    <div class="flag m-lg">
+      <span style="font-weight:600">TEMPLATE PREVIEW</span>
+      <span>The decisions and outcome below are illustrative, written to show the layout. Real content comes from Alberto.</span>
+    </div>
+
+    <div class="case-mast">
+      <span class="num">001</span>
+      <h2>RAG Pipeline</h2>
+    </div>
+    <div class="case-meta m-lg">
+      <span><span class="muted">ROLE</span> &nbsp;FULL-STACK, SOLE AUTHOR</span>
+      <span><span class="muted">PERIOD</span> &nbsp;2025</span>
+      <span><span class="muted">SECTOR</span> &nbsp;B2B PLATFORM</span>
+    </div>
+
+    <div class="blk">
+      <h3>Brief</h3>
+      <p class="prose" style="margin:0">The platform held a growing corpus of client documents that its users had to
+      read manually to answer routine questions. The brief was to let them ask in natural language and get an
+      answer grounded in those documents, with the source visible.</p>
+    </div>
+
+    <div class="blk">
+      <h3>Constraints</h3>
+      <ul class="cons">
+        <li>The corpus was small at launch and expected to grow unevenly, so retrieval quality could not depend on volume.</li>
+        <li>PostgreSQL was already in the stack. Introducing a dedicated vector database was not justified.</li>
+        <li>Answers had to start appearing immediately. A blocking request that returned after several seconds was rejected in review.</li>
+        <li>Sole author, alongside two other client deliverables.</li>
+      </ul>
+    </div>
+
+    <div class="blk">
+      <h3>Architecture</h3>
+      <div class="figure">
+        <svg viewBox="0 0 900 250" role="img" aria-label="Data flow: a user query is embedded with Gemini, matched against document embeddings stored in PostgreSQL with pgvector using an HNSW index and cosine similarity, assembled into context, sent to Gemini with function-calling tools, and streamed back to the client over server-sent events.">
+          <g font-family="PlexMono, monospace" font-size="10.5" letter-spacing="0.8">
+
+            <rect x="8" y="100" width="118" height="52" fill="none" stroke="#0A0A0A" stroke-width="1"/>
+            <text x="24" y="122" fill="#0A0A0A">CLIENT</text>
+            <text x="24" y="138" fill="#6B6B66">QUERY</text>
+
+            <rect x="176" y="100" width="128" height="52" fill="none" stroke="#0A0A0A" stroke-width="1"/>
+            <text x="192" y="122" fill="#0A0A0A">EMBED</text>
+            <text x="192" y="138" fill="#6B6B66">GEMINI</text>
+
+            <rect x="354" y="30" width="152" height="68" fill="none" stroke="#E61919" stroke-width="2"/>
+            <text x="370" y="52" fill="#E61919">PGVECTOR</text>
+            <text x="370" y="68" fill="#E61919">HNSW / COSINE</text>
+            <text x="370" y="84" fill="#E61919">TOP-K</text>
+
+            <rect x="354" y="134" width="152" height="52" fill="none" stroke="#0A0A0A" stroke-width="1"/>
+            <text x="370" y="156" fill="#0A0A0A">POSTGRES</text>
+            <text x="370" y="172" fill="#6B6B66">DOCUMENTS</text>
+
+            <rect x="556" y="100" width="152" height="68" fill="none" stroke="#0A0A0A" stroke-width="1"/>
+            <text x="572" y="122" fill="#0A0A0A">GEMINI</text>
+            <text x="572" y="138" fill="#6B6B66">CONTEXT +</text>
+            <text x="572" y="154" fill="#6B6B66">FUNCTION TOOLS</text>
+
+            <rect x="758" y="100" width="134" height="52" fill="none" stroke="#0A0A0A" stroke-width="1"/>
+            <text x="774" y="122" fill="#0A0A0A">SSE STREAM</text>
+            <text x="774" y="138" fill="#6B6B66">TO CLIENT</text>
+
+            <path d="M126 126 H168" fill="none" stroke="#0A0A0A" stroke-width="1"/>
+            <path d="M168 121 L176 126 L168 131 Z" fill="#0A0A0A" stroke="none"/>
+
+            <path d="M304 126 H330 V64 H346" fill="none" stroke="#E61919" stroke-width="2"/>
+            <path d="M346 59 L354 64 L346 69 Z" fill="#E61919" stroke="none"/>
+
+            <path d="M430 134 V106" fill="none" stroke="#0A0A0A" stroke-width="1"/>
+            <path d="M425 106 L430 98 L435 106 Z" fill="#0A0A0A" stroke="none"/>
+
+            <path d="M506 64 L532 64 L532 126 L548 126" fill="none" stroke="#E61919" stroke-width="2"/>
+            <path d="M548 121 L556 126 L548 131 Z" fill="#E61919" stroke="none"/>
+
+            <path d="M708 126 H750" fill="none" stroke="#0A0A0A" stroke-width="1"/>
+            <path d="M750 121 L758 126 L750 131 Z" fill="#0A0A0A" stroke="none"/>
+
+            <path d="M825 152 V210 H67 V160" fill="none" stroke="#0A0A0A" stroke-width="1" stroke-dasharray="3 4"/>
+            <path d="M62 160 L67 152 L72 160 Z" fill="#0A0A0A" stroke="none"/>
+            <text x="338" y="232" fill="#6B6B66">TOKENS RENDERED AS THEY ARRIVE</text>
+          </g>
+        </svg>
+      </div>
+      <p class="figcap m muted" style="margin-top:.8rem">FIG. 1 / RETRIEVAL PATH IN RED</p>
+    </div>
+
+    <div class="blk">
+      <h3>Decisions</h3>
+      <div class="tblwrap">
+        <table class="tbl">
+          <thead>
+            <tr><th style="width:26%">Decision</th><th style="width:24%">Rejected</th><th>Reasoning</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>pgvector in the existing database</td>
+              <td class="rej">A dedicated vector store</td>
+              <td>One database to operate, back up and join against. At this corpus size a separate service would have added infrastructure without adding recall.</td>
+            </tr>
+            <tr>
+              <td>HNSW index</td>
+              <td class="rej">IVFFlat</td>
+              <td>IVFFlat needs a representative sample to build its lists and degrades when the corpus grows unevenly. HNSW holds recall without a rebuild step.</td>
+            </tr>
+            <tr>
+              <td>Server-sent events</td>
+              <td class="rej">WebSockets</td>
+              <td>The stream is one directional. SSE reconnects on its own, survives proxies, and costs no connection state on the server.</td>
+            </tr>
+            <tr>
+              <td>Function calling with schema-validated arguments</td>
+              <td class="rej">Parsing intent out of the model's prose</td>
+              <td>Arguments arrive typed and are validated before anything executes. Prose parsing fails silently and fails often.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="blk">
+      <h3>Stack</h3>
+      <div class="tblwrap">
+        <table class="tbl stackt">
+          <tbody>
+            <tr><td>PostgreSQL / pgvector</td><td>Document embeddings, HNSW index, cosine similarity search</td></tr>
+            <tr><td>Google Gemini</td><td>Embeddings and generation</td></tr>
+            <tr><td>LangChain</td><td>Pipeline composition and tool definitions</td></tr>
+            <tr><td>Fastify</td><td>API surface and SSE transport</td></tr>
+            <tr><td>Zod</td><td>Validation at every boundary, including tool arguments</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<div class="wrap" id="colophon">
+  <section class="sec" style="border-top:2px solid var(--ink)">
+    <div class="notes">
+      <h3 class="lbl" style="color:var(--ink)">What this mockup is showing</h3>
+      <ol>
+        <li>Substrate, palette and type at real scale. Archivo Black for display, Archivo for body, IBM Plex Mono for all data and metadata. Hazard red appears only on rules, numerals and the retrieval path, never on body copy, because it measures 4.4:1 on this paper and fails AA for small text.</li>
+        <li>The index rows, which are the structural centre of the cover sheet. Hover one.</li>
+        <li>The case study template in full, so the layout that carries the actual content can be judged now rather than after it is built.</li>
+        <li>Still missing and needed from you: the portrait, the real decision log for each of the three cases, and the exact description of the PR #841 defect.</li>
+        <li>Not shown: the colophon page, and the two remaining case studies, which reuse this same template.</li>
+      </ol>
+    </div>
+  </section>
+</div>
+
+</div>
