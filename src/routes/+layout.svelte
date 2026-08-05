@@ -11,6 +11,8 @@
 
 <div class="wrap">
 	<SiteHeader />
-	{@render children()}
+	<main>
+		{@render children()}
+	</main>
 	<SiteFooter />
 </div>

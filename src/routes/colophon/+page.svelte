@@ -10,6 +10,19 @@
 		{ tech: 'Fonts', role: 'Self-hosted, latin subset, woff2, roughly 84 KB total' },
 		{ tech: 'Hosting', role: 'Cloudflare Pages' }
 	];
+
+	const measured = [
+		{ tech: 'Method', role: 'Lighthouse 13.4.1, mobile preset, simulated throttling, run against the built site' },
+		{ tech: 'Performance', role: '100 / 100' },
+		{ tech: 'Accessibility', role: '91 / 100' },
+		{ tech: 'SEO', role: '100 / 100' },
+		{ tech: 'Requests, cover sheet', role: '8: one document, two stylesheets, four fonts, one favicon' },
+		{ tech: 'Transferred, cover sheet', role: '90.2 KB total' },
+		{ tech: 'JavaScript', role: '0 bytes, 0 files, verified against the build output directly' },
+		{ tech: 'Fonts', role: '83.9 KB across 4 woff2 files' },
+		{ tech: 'CSS, cover sheet', role: '7.1 KB across 2 files' },
+		{ tech: 'HTML, cover sheet', role: '5.1 KB' }
+	];
 </script>
 
 <svelte:head>
@@ -36,6 +49,17 @@
 	<section class="blk">
 		<h2 class="lbl">Build</h2>
 		<StackTable rows={build} />
+	</section>
+
+	<section class="blk">
+		<h2 class="lbl">Measured</h2>
+		<p class="prose">
+			Figures below are measured, not estimated. The one point Lighthouse takes off accessibility is
+			a known trade: the hazard red numerals against the paper substrate fall short of the AA
+			contrast ratio for running text, which is exactly why that colour is kept out of body copy
+			everywhere else on the site.
+		</p>
+		<StackTable rows={measured} />
 	</section>
 </article>
 
