@@ -16,7 +16,10 @@ const BANNED = [
 	{ label: 'scroll cue', pattern: /scroll to (explore|continue)/i },
 	{ label: 'coordinate strip', pattern: /\d{2}\.\d+\s*[NS]\s*\/?\s*\d+\.\d+\s*[EW]/ },
 	// Placeholder copy must never reach the browser wearing a straight face.
-	{ label: 'content TODO marker', pattern: /TODO\(content\)/ }
+	{ label: 'content TODO marker', pattern: /TODO\(content\)/ },
+	// Real copy drawn from client work, still awaiting a disclosure decision.
+	// Different failure from invented copy, same rule: it does not ship unreviewed.
+	{ label: 'review TODO marker', pattern: /TODO\(review\)/ }
 ];
 
 describe('copy rules', () => {

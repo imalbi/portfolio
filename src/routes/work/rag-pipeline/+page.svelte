@@ -7,49 +7,66 @@
 
 	const item = entry('001');
 
-	// TODO(content): invented. Replace with Alberto's real answer.
+	// TODO(review): drawn from the real system. Check nothing here is more
+	// specific about the product than you want public.
 	const brief =
-		'The platform held a growing corpus of client documents that its users had to read manually to answer routine questions. The brief was to let them ask in natural language and get an answer grounded in those documents, with the source visible.';
+		'An enterprise conversational assistant, integrated with a CRM, had to answer from each client company\'s own documents and follow that company\'s own rules. The obvious route was a fork or a branch per client. The brief was to make one deployment do it instead, configured by administrators rather than developers.';
 
-	// TODO(content): invented. Replace with Alberto's real answer.
+	// TODO(review): drawn from the real system. Check nothing here is more
+	// specific about the product than you want public.
 	const constraints = [
-		'The corpus was small at launch and expected to grow unevenly, so retrieval quality could not depend on volume.',
-		'PostgreSQL was already in the stack. Introducing a dedicated vector database was not justified.',
-		'Answers had to start appearing immediately. A blocking request that returned after several seconds was rejected in review.',
-		'A two-developer team, alongside other deliverables running in parallel.'
+		'A two-developer team, alongside other deliverables running in parallel.',
+		'PostgreSQL was already in the stack, and adding a second datastore would have doubled what there was to operate and back up.',
+		'Much of the corpus was compliance and workplace safety material, where splitting a clause in the wrong place changes what it means.',
+		'Answers had to start appearing immediately rather than after the model finished.',
+		'Behaviour had to be changeable by administrators at runtime, without a deploy.'
 	];
 
-	// TODO(content): invented. Replace with Alberto's real answer.
+	// TODO(review): drawn from the real system. Check nothing here is more
+	// specific about the product than you want public.
 	const decisions = [
 		{
-			decision: 'pgvector in the existing database',
-			rejected: 'A dedicated vector store',
+			decision: 'One configuration tree driving both the system prompt and the retrieval scope',
+			rejected: 'A branch, fork or separate deployment per client company',
 			reasoning:
-				'One database to operate, back up and join against. At this corpus size a separate service would have added infrastructure without adding recall.'
+				'Per-client forks diverge the moment the first one is patched. Making behaviour data rather than code meant one codebase to fix and one place to look when a company behaved unexpectedly.'
 		},
 		{
-			decision: 'HNSW index',
-			rejected: 'IVFFlat',
+			decision: 'The tree that applies to a company is computed when it is needed',
+			rejected: 'Storing the resolved tree and keeping it in sync',
 			reasoning:
-				'IVFFlat needs a representative sample to build its lists and degrades when the corpus grows unevenly. HNSW holds recall without a rebuild step.'
+				'A stored copy needs invalidating on every assignment change, and when it drifts nothing fails loudly, it just answers with the wrong rules. Recomputing is cheap and cannot be stale.'
 		},
 		{
-			decision: 'Server-sent events',
-			rejected: 'WebSockets',
+			decision: 'Company context is read from the conversation being used',
+			rejected: 'A company claim carried on the auth token',
 			reasoning:
-				'The stream is one directional. SSE reconnects on its own, survives proxies, and costs no connection state on the server.'
+				'This one is easy to build backwards. Deriving context from the resource means the permission check and the context can never disagree, and administrator impersonation stops being a separate code path.'
 		},
 		{
-			decision: 'Function calling with schema-validated arguments',
-			rejected: "Parsing intent out of the model's prose",
+			decision: 'Vectors live in the existing PostgreSQL through pgvector',
+			rejected: 'A dedicated vector database',
 			reasoning:
-				'Arguments arrive typed and are validated before anything executes. Prose parsing fails silently and fails often.'
+				'Retrieval has to be filtered by which documents this user is allowed to see. In the same database that is a join. Across two systems it becomes a synchronisation problem with an access-control failure mode.'
+		},
+		{
+			decision: 'Chunking follows the document structure',
+			rejected: 'Fixed-size windows',
+			reasoning:
+				'A safety procedure cut in half retrieves as two fragments that each read as complete and neither of which is. Respecting article and section boundaries costs more code and removes a whole class of confidently wrong answers.'
+		},
+		{
+			decision: 'Reprocessing a file replaces its vectors in a single transaction',
+			rejected: 'Patching the changed chunks in place',
+			reasoning:
+				'A partial update leaves two generations of the same document retrievable at once, and the older one is indistinguishable from the newer. Replacing wholesale is slower and always consistent.'
 		}
 	];
 
-	// TODO(content): invented. Replace with Alberto's real answer.
+	// TODO(review): drawn from the real system. Check nothing here is more
+	// specific about the product than you want public.
 	const outcome =
-		'Users ask questions against the corpus instead of reading through it, and the answer cites the documents it came from. The retrieval layer runs inside the database the platform already had, so it added no new service to operate.';
+		'One deployment serves every client company with its own rules and its own documents, changed by administrators without a release. Answers stream as they are generated, and every retrieved passage is labelled with the file it came from, so an answer that looks wrong can be traced back to what produced it rather than argued about.';
 
 	const stack = [
 		{ tech: 'PostgreSQL / pgvector', role: 'Document embeddings, HNSW index, cosine similarity search' },
