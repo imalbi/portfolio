@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Masthead from '$lib/components/Masthead.svelte';
+	import WorkIndex from '$lib/components/WorkIndex.svelte';
 </script>
 
 <svelte:head>
@@ -19,6 +20,8 @@
 		legacy code that has to keep running while you fix it.
 	</p>
 </section>
+
+<WorkIndex />
 
 <style>
 	.sec {

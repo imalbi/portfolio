@@ -1,11 +1,18 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-// The header and footer link to routes and assets added by later tasks
-// (the colophon page, the CV PDF). Prerendering follows every internal link
-// and fails the build on a 404 by default, so allow exactly these known,
-// deliberate dangling links to warn instead of failing, without deleting them.
-const EXPECTED_DANGLING_LINKS = ['/colophon', '/cv/alberto-cerqua-cv.pdf'];
+// The header, footer and work index link to routes and assets added by later
+// tasks (the colophon page, the CV PDF, the three case study pages).
+// Prerendering follows every internal link and fails the build on a 404 by
+// default, so allow exactly these known, deliberate dangling links to warn
+// instead of failing, without deleting them.
+const EXPECTED_DANGLING_LINKS = [
+	'/colophon',
+	'/cv/alberto-cerqua-cv.pdf',
+	'/work/rag-pipeline',
+	'/work/platform',
+	'/work/recovery'
+];
 
 // The header links to `/#index`, an anchor on the home page's "Selected work"
 // section. The home page content is a later task, so that id does not exist
