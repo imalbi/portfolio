@@ -1,9 +1,8 @@
 <section class="mast">
 	<h1 class="d">Alberto<br />Cerqua</h1>
 
-	<!-- TODO(content): placeholder. Replace with Alberto's real portrait, 1-bit dithered. -->
 	<div class="portrait">
-		<span class="m muted">Portrait / 1-bit dither</span>
+		<img src="/portrait.png" alt="Alberto Cerqua" width="520" height="650" />
 	</div>
 
 	<div class="meta">
@@ -29,16 +28,13 @@
 		grid-column: 9 / 13;
 		aspect-ratio: 4 / 5;
 		border: 1px solid var(--ink);
-		display: flex;
-		align-items: flex-end;
-		padding: 0.75rem;
-		background-color: var(--paper);
-		background-image: radial-gradient(var(--ink) 32%, transparent 33%);
-		background-size: 7px 7px;
+		overflow: hidden;
 	}
-	.portrait span {
-		background: var(--paper);
-		padding: 0.25rem 0.4rem;
+	.portrait img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
 	}
 	.meta {
 		grid-column: 1 / 13;
