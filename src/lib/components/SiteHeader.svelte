@@ -1,0 +1,38 @@
+<header class="hdr">
+	<a class="mark" href="/">A. Cerqua</a>
+	<nav>
+		<a href="/#index">Work</a>
+		<a href="/colophon">Colophon</a>
+	</nav>
+</header>
+
+<style>
+	.hdr {
+		height: 64px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid var(--ink);
+	}
+	a {
+		text-decoration: none;
+		font-family: var(--data);
+		text-transform: uppercase;
+	}
+	.mark {
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+	}
+	nav {
+		display: flex;
+		gap: 1.75rem;
+	}
+	nav a {
+		font-size: 11px;
+		letter-spacing: 0.08em;
+	}
+	nav a:hover {
+		color: var(--hazard);
+	}
+</style>

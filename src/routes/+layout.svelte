@@ -1,11 +1,16 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
+	import '../app.css';
+	import SiteHeader from '$lib/components/SiteHeader.svelte';
+	import SiteFooter from '$lib/components/SiteFooter.svelte';
+	import type { Snippet } from 'svelte';
 
-	let { children } = $props();
+	let { children }: { children: Snippet } = $props();
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
+<div class="grain" aria-hidden="true"></div>
 
-{@render children()}
+<div class="wrap">
+	<SiteHeader />
+	{@render children()}
+	<SiteFooter />
+</div>
