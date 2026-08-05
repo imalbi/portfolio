@@ -14,7 +14,7 @@
 	const measured = [
 		{ tech: 'Method', role: 'Lighthouse 13.4.1, mobile preset, simulated throttling, run against the built site' },
 		{ tech: 'Performance', role: '100 / 100' },
-		{ tech: 'Accessibility', role: '91 / 100' },
+		{ tech: 'Accessibility', role: '100 / 100' },
 		{ tech: 'SEO', role: '100 / 100' },
 		{ tech: 'Requests, cover sheet', role: '8: one document, two stylesheets, four fonts, one favicon' },
 		{ tech: 'Transferred, cover sheet', role: '90.2 KB total' },
@@ -54,10 +54,10 @@
 	<section class="blk">
 		<h2 class="lbl">Measured</h2>
 		<p class="prose">
-			Figures below are measured, not estimated. The one point Lighthouse takes off accessibility is
-			a known trade: the hazard red numerals against the paper substrate fall short of the AA
-			contrast ratio for running text, which is exactly why that colour is kept out of body copy
-			everywhere else on the site.
+			Figures below are measured, not estimated. The accent colour is the reason accessibility took
+			work rather than falling out for free: hazard red on this paper measures 4.21:1, so it is
+			confined to rules, markers and text large enough to sit under the 3:1 threshold. Every label
+			too small to clear it is set in ink.
 		</p>
 		<StackTable rows={measured} />
 	</section>

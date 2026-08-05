@@ -56,7 +56,10 @@
 		letter-spacing: 0.1em;
 		font-size: 11px;
 		font-weight: 600;
-		color: var(--hazard);
+		/* Ink, not hazard red. At 11px this is small text, so it needs 4.5:1, and
+		   red measures 4.21:1 on paper. The compartment rule already separates
+		   these headings; the colour was decoration. */
+		color: var(--ink);
 	}
 	p {
 		margin: 0;
