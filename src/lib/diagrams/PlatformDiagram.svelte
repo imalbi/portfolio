@@ -40,6 +40,7 @@
 				<path d="M766 109 L774 114 L766 119 Z" fill="#0A0A0A" stroke="none" />
 
 				<path d="M69 88 V40 H458 V68" fill="none" stroke="#E61919" stroke-width="2" />
+				<path class="flow" d="M69 88 V40 H458 V68" fill="none" stroke="#F4F4F0" stroke-width="2" />
 				<path d="M453 68 L458 76 L463 68 Z" fill="#E61919" stroke="none" />
 				<text x="212" y="32" fill="#E61919">WEBSOCKET / REAL-TIME</text>
 
@@ -67,5 +68,32 @@
 	}
 	figcaption {
 		margin-top: 0.8rem;
+	}
+
+	/*
+	 * A short paper-coloured gap travelling the WebSocket channel, so the diagram
+	 * shows that this path is live rather than request-and-response like the rest.
+	 */
+	.flow {
+		stroke-dasharray: 14 210;
+		animation: flow 3.2s linear infinite;
+	}
+	@keyframes flow {
+		from {
+			stroke-dashoffset: 224;
+		}
+		to {
+			stroke-dashoffset: 0;
+		}
+	}
+
+	/*
+	 * The global reduced-motion rule only halts the animation, which would strand
+	 * the gap mid-path and read as a rendering fault. Remove the element instead.
+	 */
+	@media (prefers-reduced-motion: reduce) {
+		.flow {
+			display: none;
+		}
 	}
 </style>

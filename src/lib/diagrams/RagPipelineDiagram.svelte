@@ -36,12 +36,26 @@
 				<path d="M168 121 L176 126 L168 131 Z" fill="#0A0A0A" stroke="none" />
 
 				<path d="M304 126 H330 V64 H346" fill="none" stroke="#E61919" stroke-width="2" />
+				<path
+					class="flow"
+					d="M304 126 H330 V64 H346"
+					fill="none"
+					stroke="#F4F4F0"
+					stroke-width="2"
+				/>
 				<path d="M346 59 L354 64 L346 69 Z" fill="#E61919" stroke="none" />
 
 				<path d="M430 134 V106" fill="none" stroke="#0A0A0A" stroke-width="1" />
 				<path d="M425 106 L430 98 L435 106 Z" fill="#0A0A0A" stroke="none" />
 
 				<path d="M506 64 L532 64 L532 126 L548 126" fill="none" stroke="#E61919" stroke-width="2" />
+				<path
+					class="flow flow-late"
+					d="M506 64 L532 64 L532 126 L548 126"
+					fill="none"
+					stroke="#F4F4F0"
+					stroke-width="2"
+				/>
 				<path d="M548 121 L556 126 L548 131 Z" fill="#E61919" stroke="none" />
 
 				<path d="M708 126 H750" fill="none" stroke="#0A0A0A" stroke-width="1" />
@@ -79,5 +93,36 @@
 	}
 	figcaption {
 		margin-top: 0.8rem;
+	}
+
+	/*
+	 * A short paper-coloured gap travelling along the retrieval path. It carries
+	 * information the static diagram cannot: which way the data moves, and that
+	 * the response arrives as a stream rather than in one piece.
+	 */
+	.flow {
+		stroke-dasharray: 14 210;
+		animation: flow 3.2s linear infinite;
+	}
+	.flow-late {
+		animation-delay: 1.1s;
+	}
+	@keyframes flow {
+		from {
+			stroke-dashoffset: 224;
+		}
+		to {
+			stroke-dashoffset: 0;
+		}
+	}
+
+	/*
+	 * The global reduced-motion rule only halts the animation, which would strand
+	 * the gap mid-path and read as a rendering fault. Remove the element instead.
+	 */
+	@media (prefers-reduced-motion: reduce) {
+		.flow {
+			display: none;
+		}
 	}
 </style>
