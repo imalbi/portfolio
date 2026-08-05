@@ -13,16 +13,24 @@ export interface WorkEntry {
 
 /*
  * TODO(review): the `role`, `period` and `sector` fields are claims about what
- * Alberto actually did, not about technology, and they carry more risk than
- * anything else on the site. Check each one before this ships.
+ * Alberto actually did, not about technology. Check each one before this ships.
  *
- * Two entries, not three. An earlier draft listed a Java to TypeScript backend
- * port as a third case; that work was led by someone else and has been removed
- * rather than padded out.
+ * Roles are written from the git record, measured by lines changed rather than
+ * commit count, and scoped to the areas he actually wrote. On teams of two or
+ * three, saying which part was yours reads better than implying all of it was.
  */
 export const work: WorkEntry[] = [
 	{
 		id: '001',
+		title: 'Behavioural Analysis',
+		href: '/work/behavioural-analysis',
+		stack: 'SvelteKit / LiveKit / Fastify',
+		role: 'Frontend lead, three-developer team',
+		period: '2026',
+		sector: 'Real-time analysis platform'
+	},
+	{
+		id: '002',
 		title: 'Production Recovery',
 		href: '/work/recovery',
 		stack: 'React Native / Expo / TanStack Query',
@@ -31,11 +39,11 @@ export const work: WorkEntry[] = [
 		sector: 'Consumer mobile app'
 	},
 	{
-		id: '002',
-		title: 'Retrieval Layer',
-		href: '/work/retrieval',
-		stack: 'pgvector / Gemini / SSE',
-		role: 'Full-stack, two-developer team',
+		id: '003',
+		title: 'Assistant Platform',
+		href: '/work/assistant-platform',
+		stack: 'SvelteKit / Fastify / pgvector',
+		role: 'Frontend lead, two-developer team',
 		period: '2025 to 2026',
 		sector: 'Enterprise AI assistant'
 	}

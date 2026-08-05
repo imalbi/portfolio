@@ -1,60 +1,38 @@
 <script lang="ts">
 	import CaseLayout from '$lib/components/CaseLayout.svelte';
-	import DecisionTable from '$lib/components/DecisionTable.svelte';
-	import StackTable from '$lib/components/StackTable.svelte';
+	import CaseSections from '$lib/components/CaseSections.svelte';
 	import RecoveryDiagram from '$lib/diagrams/RecoveryDiagram.svelte';
 	import { entry } from '$lib/content/work';
 
-	const item = entry('001');
+	const item = entry('002');
 
 	// TODO(review): drawn from the real codebase and its own audit documents.
-	// Check nothing here is more specific about the product than you want public.
 	const brief =
-		'A consumer mobile app that had passed through three teams in eighteen months, changed source control provider mid-life, and arrived with no linter, no formatter, native build output committed to git, and three different ways of talking to the API living side by side. It was in the stores and in use. The job was to make it safe to change again.';
+		'A consumer mobile app that had passed through three teams in eighteen months, changed source control provider mid-life, and arrived with no linter, no formatter, native build output committed to git, and three different ways of talking to the API living side by side. It was in the stores and in use. The job was to make it safe to change again, while a rewrite of the backend ran underneath it.';
 
-	// TODO(review): drawn from the real codebase and its own audit documents.
 	const constraints = [
 		'The app was live throughout. Nothing could be taken offline to be fixed.',
 		'Each of the three previous teams had left its own data-access idiom in place, and all three still had callers.',
-		'A rewrite of the backend was running in parallel, so the API underneath was moving while the app was being stabilised.',
+		'The backend was being replaced in parallel, so the API underneath was moving while the app was being stabilised.',
 		'There was no test suite meaningful enough to catch a regression.'
 	];
 
-	// TODO(review): drawn from the real codebase and its own audit documents.
-	const decisions = [
-		{
-			decision: 'Measure the damage before touching it',
-			rejected: 'Starting the cleanup on day one',
-			reasoning:
-				'We wrote read-only audits first and counted the actual state: how many screens built their own service objects instead of going through the query layer, how many call sites still fetched credentials that middleware had handled for months. A number you can re-measure tells you whether the cleanup is working. A feeling does not.'
-		},
-		{
-			decision: 'Two API layers running side by side, on purpose',
-			rejected: 'One cutover to the typed client',
-			reasoning:
-				'The old client and the generated typed one both stay alive, and new code is steered onto the typed one. On a live app with no test coverage, a single cutover is how you find out which screens nobody was checking, in the store, on a Friday.'
-		},
-		{
-			decision: 'Generate the types, write the data hooks by hand',
-			rejected: 'Generating the hooks too, as a sibling project does',
-			reasoning:
-				'Codegen would have produced a hook per endpoint for free. Writing them by hand means one deliberate shape for loading and error state across the app, and one place to say what a mutation should invalidate. On a codebase whose main disease was three idioms for the same job, uniformity was worth more than the typing it saved.'
-		},
-		{
-			decision: 'Verify the component unification by comparing screenshots',
-			rejected: 'Trusting the type checker and the tests',
-			reasoning:
-				'Years of accreted one-off components were consolidated behind a few shared primitives. The compiler can prove the new code builds. It cannot tell you the screen still looks like it did yesterday, and with no visual coverage nothing else would have.'
-		},
-		{
-			decision: 'Leave the remaining debt written down and counted',
-			rejected: 'Declaring the cleanup finished',
-			reasoning:
-				'The audits end in a prioritised migration list rather than a clean bill of health. Debt that is measured and queued gets paid down. Debt that has been announced as fixed gets rediscovered by whoever arrives next, which is how this codebase reached three idioms in the first place.'
-		}
+	const howItWorks = [
+		'Server state goes through a query layer that owns caching, deduplication and invalidation. Client state that outlives a screen sits separately. The disease being treated was screens that built their own service objects and bypassed both.',
+		'API types are generated from the backend specification, so the client cannot drift from the server without the build noticing. The query and mutation layer on top of them is written by hand, which keeps one shape for loading and error state across the app.',
+		'The legacy client and the generated typed one run side by side during the migration. New code goes on the typed one; old call sites move over incrementally rather than in a single cutover on a live app with no tests.',
+		'Years of one-off UI components were consolidated behind a small set of shared primitives, and the result was checked by comparing screens before and against after, because with no visual coverage the compiler cannot tell you the screen still looks right.',
+		'The remaining debt is not described, it is counted: read-only audits record how many call sites still use each old pattern, so the next pass can measure whether it moved.'
 	];
 
-	// TODO(review): drawn from the real codebase and its own audit documents.
+	// TODO(review): scoped from the git record, measured by lines changed.
+	const myPart = [
+		'The profile section and the social feed screens, including the immersive feed item, which is the largest single component I wrote here.',
+		'Work on the typed API layer and the migration of screens onto it.',
+		'Part of the third team on this codebase, arriving after two others had built and partly abandoned it.',
+		'Not mine: the first eighteen months of the app, and the TypeScript backend that replaced the original Java services, which another developer led.'
+	];
+
 	const outcome =
 		'The app has one linter, one formatter and one documented way to reach the API, which new code follows. What debt remains is listed and prioritised rather than waiting to be discovered. The audits also surfaced code that had been quietly wrong for a long time, including a placeholder left over from early development that was still feeding invented profile data to a live screen.';
 
@@ -77,64 +55,9 @@
 </svelte:head>
 
 <CaseLayout {item}>
-	<section class="blk">
-		<h2 class="lbl">Brief</h2>
-		<p class="prose">{brief}</p>
-	</section>
-
-	<section class="blk">
-		<h2 class="lbl">Constraints</h2>
-		<ul>
-			{#each constraints as constraint (constraint)}
-				<li>{constraint}</li>
-			{/each}
-		</ul>
-	</section>
-
-	<section class="blk">
-		<h2 class="lbl">Architecture</h2>
-		<RecoveryDiagram />
-	</section>
-
-	<section class="blk">
-		<h2 class="lbl">Decisions</h2>
-		<DecisionTable rows={decisions} />
-	</section>
-
-	<section class="blk">
-		<h2 class="lbl">Outcome</h2>
-		<p class="prose">{outcome}</p>
-	</section>
-
-	<section class="blk">
-		<h2 class="lbl">Stack</h2>
-		<StackTable rows={stack} />
-	</section>
+	<CaseSections {brief} {constraints} {howItWorks} {myPart} {outcome} {stack}>
+		{#snippet diagram()}
+			<RecoveryDiagram />
+		{/snippet}
+	</CaseSections>
 </CaseLayout>
-
-<style>
-	.blk {
-		margin-bottom: 2.75rem;
-	}
-	ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		max-width: 70ch;
-	}
-	li {
-		padding-left: 1.6rem;
-		position: relative;
-		margin-bottom: 0.45rem;
-		font-size: 1.0625rem;
-	}
-	li::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 0.72em;
-		width: 0.8rem;
-		height: 2px;
-		background: var(--hazard);
-	}
-</style>
