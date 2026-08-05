@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Masthead from '$lib/components/Masthead.svelte';
 	import WorkIndex from '$lib/components/WorkIndex.svelte';
+	import OpenSource from '$lib/components/OpenSource.svelte';
+	import Capabilities from '$lib/components/Capabilities.svelte';
 </script>
 
 <svelte:head>
@@ -22,6 +24,8 @@
 </section>
 
 <WorkIndex />
+<OpenSource />
+<Capabilities />
 
 <style>
 	.sec {
