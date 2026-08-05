@@ -22,8 +22,8 @@ export interface WorkEntry {
 export const work: WorkEntry[] = [
 	{
 		id: '001',
-		title: 'Behavioural Analysis',
-		href: '/work/behavioural-analysis',
+		title: 'Realtime Client',
+		href: '/work/realtime-client',
 		stack: 'SvelteKit / LiveKit / Fastify',
 		role: 'Frontend lead, three-developer team',
 		period: '2026',

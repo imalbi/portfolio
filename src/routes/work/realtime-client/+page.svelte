@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CaseLayout from '$lib/components/CaseLayout.svelte';
 	import CaseSections from '$lib/components/CaseSections.svelte';
-	import BehaviouralAnalysisDiagram from '$lib/diagrams/BehaviouralAnalysisDiagram.svelte';
+	import RealtimeClientDiagram from '$lib/diagrams/RealtimeClientDiagram.svelte';
 	import { entry } from '$lib/content/work';
 
 	const item = entry('001');
@@ -59,7 +59,7 @@
 <CaseLayout {item}>
 	<CaseSections {brief} {constraints} {howItWorks} {myPart} {outcome} {stack}>
 		{#snippet diagram()}
-			<BehaviouralAnalysisDiagram />
+			<RealtimeClientDiagram />
 		{/snippet}
 	</CaseSections>
 </CaseLayout>
