@@ -16,7 +16,7 @@
 		'The corpus was small at launch and expected to grow unevenly, so retrieval quality could not depend on volume.',
 		'PostgreSQL was already in the stack. Introducing a dedicated vector database was not justified.',
 		'Answers had to start appearing immediately. A blocking request that returned after several seconds was rejected in review.',
-		'Sole author, alongside two other client deliverables.'
+		'A two-developer team, alongside other deliverables running in parallel.'
 	];
 
 	// TODO(content): invented. Replace with Alberto's real answer.

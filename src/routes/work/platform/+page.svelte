@@ -16,7 +16,7 @@
 		'No existing backend to build on. The API, its schema and its conventions had to be designed alongside the frontend that consumed them, in parallel.',
 		"The client's team needed to see changes daily, so the frontend had to render fast on first load rather than wait on a client-side bundle to boot.",
 		'Some views needed to update as data changed elsewhere in the system, without the user refreshing the page.',
-		'Sole author, so the choices had to stay boring and few enough for one person to hold the whole system in their head.'
+		'A two-developer team, so the choices had to stay boring and few enough for two people to hold the whole system between them.'
 	];
 
 	// TODO(content): invented. Replace with Alberto's real answer.

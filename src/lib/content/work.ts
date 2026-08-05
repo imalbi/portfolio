@@ -27,7 +27,7 @@ export const work: WorkEntry[] = [
 		title: 'RAG Pipeline',
 		href: '/work/rag-pipeline',
 		stack: 'pgvector / Gemini / SSE',
-		role: 'Full-stack, sole author',
+		role: 'Full-stack, two-developer team',
 		period: '2025',
 		sector: 'B2B platform'
 	},
@@ -36,7 +36,7 @@ export const work: WorkEntry[] = [
 		title: 'Client Platform',
 		href: '/work/platform',
 		stack: 'SvelteKit / Fastify / Drizzle',
-		role: 'Full-stack, sole author',
+		role: 'Full-stack, two-developer team',
 		period: '2025',
 		sector: 'B2B platform'
 	},
