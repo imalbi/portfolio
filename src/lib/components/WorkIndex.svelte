@@ -54,7 +54,10 @@
 	}
 	.num {
 		font-family: var(--data);
-		font-weight: 600;
+		/* 700 at 20px clears the WCAG large-text threshold (14pt bold), where the
+		   contrast requirement drops to 3:1. Hazard red measures 4.4:1 on paper,
+		   which passes there but fails the 4.5:1 small-text rule at weight 600. */
+		font-weight: 700;
 		font-size: 1.25rem;
 		color: var(--hazard);
 	}
