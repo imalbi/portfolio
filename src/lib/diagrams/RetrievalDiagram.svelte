@@ -3,7 +3,7 @@
 		<svg
 			viewBox="0 0 900 250"
 			role="img"
-			aria-label="Data flow: a user query is embedded with Gemini, matched against document embeddings stored in PostgreSQL with pgvector using an HNSW index and cosine similarity, assembled into context, sent to Gemini with function-calling tools, and streamed back to the client over server-sent events."
+			aria-label="Data flow: a user query is embedded with Gemini, matched against document embeddings stored in PostgreSQL with pgvector using cosine similarity, assembled into context, sent to Gemini with function-calling tools, and streamed back to the client over server-sent events."
 		>
 			<g font-family="IBM Plex Mono, monospace" font-size="10.5" letter-spacing="0.8">
 				<rect x="8" y="100" width="118" height="52" fill="none" stroke="#0A0A0A" stroke-width="1" />
@@ -16,7 +16,7 @@
 
 				<rect x="354" y="30" width="152" height="68" fill="none" stroke="#E61919" stroke-width="2" />
 				<text x="370" y="52" fill="#E61919">PGVECTOR</text>
-				<text x="370" y="68" fill="#E61919">HNSW / COSINE</text>
+				<text x="370" y="68" fill="#E61919">COSINE</text>
 				<text x="370" y="84" fill="#E61919">TOP-K</text>
 
 				<rect x="354" y="134" width="152" height="52" fill="none" stroke="#0A0A0A" stroke-width="1" />

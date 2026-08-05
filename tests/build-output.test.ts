@@ -2,9 +2,14 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
+import { work } from '../src/lib/content/work';
+
 const BUILD = 'build';
 
-const ROUTES = ['', 'work/rag-pipeline', 'work/platform', 'work/recovery', 'colophon'];
+// Derived from the work index rather than listed by hand, so adding or renaming
+// a case study cannot leave this test asserting against routes that no longer
+// exist, or silently stop covering one that does.
+const ROUTES = ['', ...work.map((w) => w.href.replace(/^\//, '')), 'colophon'];
 
 /**
  * adapter-static writes `about.html` by default and `about/index.html` when

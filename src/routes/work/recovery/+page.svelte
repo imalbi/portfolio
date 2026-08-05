@@ -5,65 +5,66 @@
 	import RecoveryDiagram from '$lib/diagrams/RecoveryDiagram.svelte';
 	import { entry } from '$lib/content/work';
 
-	const item = entry('003');
+	const item = entry('001');
 
-	// TODO(content): invented. Replace with Alberto's real answer.
+	// TODO(review): drawn from the real codebase and its own audit documents.
+	// Check nothing here is more specific about the product than you want public.
 	const brief =
-		'A live product was handed over mid-crisis: the previous team was gone, the codebase had no tests and no documentation, and users were hitting failures the existing logs could not explain. The brief was to stabilise it without a rewrite the business could not afford to wait for.';
+		'A consumer mobile app that had passed through three teams in eighteen months, changed source control provider mid-life, and arrived with no linter, no formatter, native build output committed to git, and three different ways of talking to the API living side by side. It was in the stores and in use. The job was to make it safe to change again.';
 
-	// TODO(content): invented. Replace with Alberto's real answer.
+	// TODO(review): drawn from the real codebase and its own audit documents.
 	const constraints = [
-		'The product had active users throughout. Downtime to fix something was not an acceptable trade for fixing it faster.',
-		'No test suite and no reliable way to know what already worked, so any change carried the risk of breaking something silently.',
-		'The original authors were not reachable, so decisions were made from reading the code and the failures it produced, not from institutional knowledge.',
-		'A full rewrite was not on the table. The system had to keep running while it was repaired underneath its users.'
+		'The app was live throughout. Nothing could be taken offline to be fixed.',
+		'Each of the three previous teams had left its own data-access idiom in place, and all three still had callers.',
+		'A rewrite of the backend was running in parallel, so the API underneath was moving while the app was being stabilised.',
+		'There was no test suite meaningful enough to catch a regression.'
 	];
 
-	// TODO(content): invented. Replace with Alberto's real answer.
+	// TODO(review): drawn from the real codebase and its own audit documents.
 	const decisions = [
 		{
-			decision: 'Stabilise before refactoring',
-			rejected: 'Rewriting the worst subsystems immediately',
+			decision: 'Measure the damage before touching it',
+			rejected: 'Starting the cleanup on day one',
 			reasoning:
-				'A rewrite under pressure with no tests trades a known set of bugs for an unknown one. Stopping the active failures first bought the time to refactor safely afterward.'
+				'We wrote read-only audits first and counted the actual state: how many screens built their own service objects instead of going through the query layer, how many call sites still fetched credentials that middleware had handled for months. A number you can re-measure tells you whether the cleanup is working. A feeling does not.'
 		},
 		{
-			decision: 'Validation added at the boundaries first',
-			rejected: 'Fixing failures where they were thrown',
+			decision: 'Two API layers running side by side, on purpose',
+			rejected: 'One cutover to the typed client',
 			reasoning:
-				'Most of the failures traced back to input that should never have been accepted. Stopping bad data at the edge closed a whole class of downstream errors at once, instead of patching each symptom.'
+				'The old client and the generated typed one both stay alive, and new code is steered onto the typed one. On a live app with no test coverage, a single cutover is how you find out which screens nobody was checking, in the store, on a Friday.'
 		},
 		{
-			decision: 'Contain some subsystems instead of rewriting them',
-			rejected: 'Rewriting everything that was ugly',
+			decision: 'Generate the types, write the data hooks by hand',
+			rejected: 'Generating the hooks too, as a sibling project does',
 			reasoning:
-				'Not every rough piece of code was causing failures. The ones that were stable but unpleasant were wrapped and left alone, so effort went to what was actually breaking.'
+				'Codegen would have produced a hook per endpoint for free. Writing them by hand means one deliberate shape for loading and error state across the app, and one place to say what a mutation should invalidate. On a codebase whose main disease was three idioms for the same job, uniformity was worth more than the typing it saved.'
 		},
 		{
-			decision: 'Types introduced incrementally at the edges',
-			rejected: 'A full migration to TypeScript upfront',
+			decision: 'Verify the component unification by comparing screenshots',
+			rejected: 'Trusting the type checker and the tests',
 			reasoning:
-				'Converting the whole codebase before touching the failures would have delayed every fix behind it. Typing the boundaries first caught the same class of errors validation did, without stopping the recovery to do a migration.'
+				'Years of accreted one-off components were consolidated behind a few shared primitives. The compiler can prove the new code builds. It cannot tell you the screen still looks like it did yesterday, and with no visual coverage nothing else would have.'
 		},
 		{
-			decision: 'Triage by user impact',
-			rejected: 'Triage by code quality',
+			decision: 'Leave the remaining debt written down and counted',
+			rejected: 'Declaring the cleanup finished',
 			reasoning:
-				'The ugliest code was not always the code hurting users. Ranking fixes by what was actually breaking for someone, rather than by what was hardest to look at, kept the effort pointed at the right problems.'
+				'The audits end in a prioritised migration list rather than a clean bill of health. Debt that is measured and queued gets paid down. Debt that has been announced as fixed gets rediscovered by whoever arrives next, which is how this codebase reached three idioms in the first place.'
 		}
 	];
 
-	// TODO(content): invented. Replace with Alberto's real answer.
+	// TODO(review): drawn from the real codebase and its own audit documents.
 	const outcome =
-		'The product stayed live throughout and the failures that triggered the handover stopped recurring. The riskiest subsystems were rewritten under test; the rest were contained and left running. The codebase came out of the recovery with validation at its boundaries and enough structure that the next person working in it does not have to read the whole thing to make a safe change.';
+		'The app has one linter, one formatter and one documented way to reach the API, which new code follows. What debt remains is listed and prioritised rather than waiting to be discovered. The audits also surfaced code that had been quietly wrong for a long time, including a placeholder left over from early development that was still feeding invented profile data to a live screen.';
 
 	const stack = [
-		{ tech: 'JavaScript / Node.js', role: 'Inherited runtime and service layer, kept in place while stabilising' },
-		{ tech: 'TypeScript', role: 'Introduced incrementally at the boundaries and in rewritten subsystems' },
-		{ tech: 'Zod', role: 'Validation added at the edges before anything else changed' },
-		{ tech: 'PostgreSQL', role: 'Existing data store; writes made transactional where they were not' },
-		{ tech: 'Docker', role: 'Reproducible environment used to isolate and verify fixes before shipping' },
-		{ tech: 'Git', role: 'Small, reviewable commits to keep every change bisectable under pressure' }
+		{ tech: 'React Native / Expo', role: 'The application, with file-based routing' },
+		{ tech: 'TypeScript', role: 'API types generated from the specification, not hand-written' },
+		{ tech: 'TanStack Query', role: 'Server state, caching and cross-domain invalidation' },
+		{ tech: 'Redux Toolkit', role: 'Client state that outlives a single screen' },
+		{ tech: 'Auth0', role: 'Authentication, shared with the backend' },
+		{ tech: 'Stripe', role: 'Payments' }
 	];
 </script>
 
@@ -71,7 +72,7 @@
 	<title>{item.title}, case {item.id}</title>
 	<meta
 		name="description"
-		content="Stabilising a live product inherited in a critical state: triage, boundary validation and incremental typing under pressure."
+		content="Taking over a live mobile app after three teams and making it safe to change again."
 	/>
 </svelte:head>
 

@@ -2,10 +2,10 @@
 	import CaseLayout from '$lib/components/CaseLayout.svelte';
 	import DecisionTable from '$lib/components/DecisionTable.svelte';
 	import StackTable from '$lib/components/StackTable.svelte';
-	import RagPipelineDiagram from '$lib/diagrams/RagPipelineDiagram.svelte';
+	import RetrievalDiagram from '$lib/diagrams/RetrievalDiagram.svelte';
 	import { entry } from '$lib/content/work';
 
-	const item = entry('001');
+	const item = entry('002');
 
 	// TODO(review): drawn from the real system. Check nothing here is more
 	// specific about the product than you want public.
@@ -69,7 +69,7 @@
 		'One deployment serves every client company with its own rules and its own documents, changed by administrators without a release. Answers stream as they are generated, and every retrieved passage is labelled with the file it came from, so an answer that looks wrong can be traced back to what produced it rather than argued about.';
 
 	const stack = [
-		{ tech: 'PostgreSQL / pgvector', role: 'Document embeddings, HNSW index, cosine similarity search' },
+		{ tech: 'PostgreSQL / pgvector', role: 'Document embeddings and cosine similarity search' },
 		{ tech: 'Google Gemini', role: 'Embeddings and generation' },
 		{ tech: 'LangChain', role: 'Pipeline composition and tool definitions' },
 		{ tech: 'Fastify', role: 'API surface and SSE transport' },
@@ -99,7 +99,7 @@
 
 	<section class="blk">
 		<h2 class="lbl">Architecture</h2>
-		<RagPipelineDiagram />
+		<RetrievalDiagram />
 	</section>
 
 	<section class="blk">

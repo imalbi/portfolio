@@ -12,42 +12,32 @@ export interface WorkEntry {
 }
 
 /*
- * TODO(content): invented. Replace with Alberto's real answer.
+ * TODO(review): the `role`, `period` and `sector` fields are claims about what
+ * Alberto actually did, not about technology, and they carry more risk than
+ * anything else on the site. Check each one before this ships.
  *
- * The `role`, `period` and `sector` fields below are claims about what he
- * actually did, not about technology. They carry more risk than anything else
- * on the site: a wrong technical opinion is arguable, but "sole author" is a
- * checkable claim about how much of the work was his. Verify every one before
- * this ships. In particular, "Live consumer product" on case 003 does not come
- * from the CV, and the periods may well run past 2025.
+ * Two entries, not three. An earlier draft listed a Java to TypeScript backend
+ * port as a third case; that work was led by someone else and has been removed
+ * rather than padded out.
  */
 export const work: WorkEntry[] = [
 	{
 		id: '001',
-		title: 'RAG Pipeline',
-		href: '/work/rag-pipeline',
-		stack: 'pgvector / Gemini / SSE',
-		role: 'Full-stack, two-developer team',
-		period: '2025',
-		sector: 'B2B platform'
+		title: 'Production Recovery',
+		href: '/work/recovery',
+		stack: 'React Native / Expo / TanStack Query',
+		role: 'Full-stack, third team on the codebase',
+		period: '2026',
+		sector: 'Consumer mobile app'
 	},
 	{
 		id: '002',
-		title: 'Client Platform',
-		href: '/work/platform',
-		stack: 'SvelteKit / Fastify / Drizzle',
+		title: 'Retrieval Layer',
+		href: '/work/retrieval',
+		stack: 'pgvector / Gemini / SSE',
 		role: 'Full-stack, two-developer team',
-		period: '2025',
-		sector: 'B2B platform'
-	},
-	{
-		id: '003',
-		title: 'Production Recovery',
-		href: '/work/recovery',
-		stack: 'Legacy / Triage / Refactor',
-		role: 'Full-stack',
-		period: '2025',
-		sector: 'Live consumer product'
+		period: '2025 to 2026',
+		sector: 'Enterprise AI assistant'
 	}
 ];
 
