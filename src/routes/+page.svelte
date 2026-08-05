@@ -11,6 +11,14 @@
 		name="description"
 		content="Full-stack developer in Turin. Retrieval pipelines, streamed APIs and production recovery, documented as technical case studies."
 	/>
+	<meta property="og:title" content="Alberto Cerqua, full-stack developer" />
+	<meta
+		property="og:description"
+		content="Retrieval pipelines, streamed APIs and production recovery, documented as technical case studies."
+	/>
+	<meta property="og:image" content="/og.png" />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <Masthead />
