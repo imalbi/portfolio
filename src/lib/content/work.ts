@@ -11,6 +11,16 @@ export interface WorkEntry {
 	sector: string;
 }
 
+/*
+ * TODO(content): invented. Replace with Alberto's real answer.
+ *
+ * The `role`, `period` and `sector` fields below are claims about what he
+ * actually did, not about technology. They carry more risk than anything else
+ * on the site: a wrong technical opinion is arguable, but "sole author" is a
+ * checkable claim about how much of the work was his. Verify every one before
+ * this ships. In particular, "Live consumer product" on case 003 does not come
+ * from the CV, and the periods may well run past 2025.
+ */
 export const work: WorkEntry[] = [
 	{
 		id: '001',
