@@ -8,7 +8,8 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "vite build && vitest run",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"deploy": "vite build && wrangler pages deploy build --project-name imalbi --branch main"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^3.0.10",
@@ -19,6 +20,7 @@
 		"svelte-check": "^4.6.0",
 		"typescript": "^6.0.3",
 		"vite": "^8.0.16",
-		"vitest": "^4.1.10"
+		"vitest": "^4.1.10",
+		"wrangler": "^4.126.0"
 	}
 }

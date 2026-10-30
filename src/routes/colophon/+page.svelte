@@ -1,5 +1,6 @@
 <script lang="ts">
 	import StackTable from '$lib/components/StackTable.svelte';
+	import SeoHead from '$lib/components/SeoHead.svelte';
 
 	const build = [
 		{ tech: 'SvelteKit', role: 'Static site generation via adapter-static' },
@@ -16,8 +17,8 @@
 		{ tech: 'Performance', role: '100 / 100' },
 		{ tech: 'Accessibility', role: '100 / 100' },
 		{ tech: 'SEO', role: '100 / 100' },
-		{ tech: 'Requests, cover sheet', role: '8: one document, two stylesheets, four fonts, one favicon' },
-		{ tech: 'Transferred, cover sheet', role: '90.2 KB total' },
+		{ tech: 'Requests, cover sheet', role: '9: one document, two stylesheets, four fonts, one portrait, one favicon' },
+		{ tech: 'Transferred, cover sheet', role: '107.4 KB total' },
 		{ tech: 'JavaScript', role: '0 bytes, 0 files, verified against the build output directly' },
 		{ tech: 'Fonts', role: '83.9 KB across 4 woff2 files' },
 		{ tech: 'CSS, cover sheet', role: '7.1 KB across 2 files' },
@@ -25,10 +26,7 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Colophon</title>
-	<meta name="description" content="How this site is built." />
-</svelte:head>
+<SeoHead title="Colophon" description="How this site is built." />
 
 <article class="col">
 	<h1>Colophon</h1>

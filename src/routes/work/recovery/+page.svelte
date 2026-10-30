@@ -2,11 +2,11 @@
 	import CaseLayout from '$lib/components/CaseLayout.svelte';
 	import CaseSections from '$lib/components/CaseSections.svelte';
 	import RecoveryDiagram from '$lib/diagrams/RecoveryDiagram.svelte';
+	import SeoHead from '$lib/components/SeoHead.svelte';
 	import { entry } from '$lib/content/work';
 
-	const item = entry('002');
+	const item = entry('#02');
 
-	// TODO(review): drawn from the real codebase and its own audit documents.
 	const brief =
 		'A consumer mobile app that had passed through three teams in eighteen months, changed source control provider mid-life, and arrived with no linter, no formatter, native build output committed to git, and three different ways of talking to the API living side by side. It was in the stores and in use. The job was to make it safe to change again, while a rewrite of the backend ran underneath it.';
 
@@ -25,7 +25,7 @@
 		'The remaining debt is not described, it is counted: read-only audits record how many call sites still use each old pattern, so the next pass can measure whether it moved.'
 	];
 
-	// TODO(review): scoped from the git record, measured by lines changed.
+	// Scoped from the git record, measured by lines changed.
 	const myPart = [
 		'The profile section and the social feed screens, including the immersive feed item, which is the largest single component I wrote here.',
 		'Work on the typed API layer and the migration of screens onto it.',
@@ -46,13 +46,10 @@
 	];
 </script>
 
-<svelte:head>
-	<title>{item.title}, case {item.id}</title>
-	<meta
-		name="description"
-		content="Taking over a live mobile app after three teams and making it safe to change again."
-	/>
-</svelte:head>
+<SeoHead
+	title="{item.title}, case {item.id}"
+	description="Taking over a live mobile app after three teams and making it safe to change again."
+/>
 
 <CaseLayout {item}>
 	<CaseSections {brief} {constraints} {howItWorks} {myPart} {outcome} {stack}>

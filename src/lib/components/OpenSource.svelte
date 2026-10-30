@@ -1,22 +1,38 @@
+<script lang="ts">
+	const contributions = [
+		{
+			repo: 'fast-json-stringify',
+			context: 'Fastify ecosystem',
+			label: 'PR #841 / Merged',
+			href: 'https://github.com/fastify/fast-json-stringify/pull/841',
+			summary:
+				"Fixed a malformed comma serialization edge case in Fastify's JSON stringifier triggered by Zod-generated schemas. Verified with regression tests and benchmarks, reviewed and merged by the project maintainers."
+		},
+		{
+			repo: 'quickshell',
+			context: 'QtQuick desktop shell toolkit',
+			label: 'PR #1269 / Merged',
+			href: 'https://github.com/quickshell-mirror/quickshell/pull/1269',
+			summary:
+				'Fixed a crash in the Wayland screen capture path when no screen is connected, such as during a display hotplug. Added the missing null checks in the screencopy managers, reviewed and merged upstream.'
+		}
+	];
+</script>
+
 <section class="sec">
 	<h2 class="lbl">Open source</h2>
-	<div class="grid">
-		<div class="who">
-			<h3>fast-json-stringify</h3>
-			<p class="eco m muted">Fastify ecosystem</p>
-			<a class="pr" href="https://github.com/fastify/fast-json-stringify/pull/841">
-				PR #841 / Merged
-			</a>
+	{#each contributions as c (c.href)}
+		<div class="grid">
+			<div class="who">
+				<h3>{c.repo}</h3>
+				<p class="eco m muted">{c.context}</p>
+				<a class="pr" href={c.href}>{c.label}</a>
+			</div>
+			<div class="what">
+				<p class="prose">{c.summary}</p>
+			</div>
 		</div>
-		<div class="what">
-			<!-- TODO(content): the defect description is deliberately general. Replace with the
-			     exact edge case the PR fixed, in Alberto's own words. -->
-			<p class="prose">
-				A serialization edge case in the JSON stringifier that Fastify uses on every response. The
-				fix was reviewed and merged by the project maintainer.
-			</p>
-		</div>
-	</div>
+	{/each}
 </section>
 
 <style>
@@ -29,6 +45,11 @@
 		grid-template-columns: repeat(12, 1fr);
 		gap: var(--gut);
 		align-items: start;
+	}
+	.grid + .grid {
+		margin-top: 2rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--ink);
 	}
 	.who {
 		grid-column: 1 / 6;

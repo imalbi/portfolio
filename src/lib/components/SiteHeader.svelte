@@ -18,6 +18,8 @@
 		text-decoration: none;
 		font-family: var(--data);
 		text-transform: uppercase;
+		/* Hit area. The links are 11px type, below the 24px WCAG 2.2 target size. */
+		padding-block: 0.5rem;
 	}
 	.mark {
 		font-size: 13px;

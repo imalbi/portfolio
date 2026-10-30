@@ -16,9 +16,10 @@
 		myPart: string[];
 		outcome: string;
 		stack: { tech: string; role: string }[];
+		preview?: import('svelte').Snippet;
 	}
 
-	let { brief, constraints, diagram, howItWorks, myPart, outcome, stack }: Props = $props();
+	let { brief, constraints, diagram, howItWorks, myPart, outcome, stack, preview }: Props = $props();
 
 	import StackTable from './StackTable.svelte';
 </script>
@@ -41,6 +42,13 @@
 	<h2 class="lbl">Architecture</h2>
 	{@render diagram()}
 </section>
+
+{#if preview}
+	<section class="blk">
+		<h2 class="lbl">Interface</h2>
+		{@render preview()}
+	</section>
+{/if}
 
 <section class="blk">
 	<h2 class="lbl">How it works</h2>

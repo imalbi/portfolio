@@ -2,12 +2,11 @@
 	import CaseLayout from '$lib/components/CaseLayout.svelte';
 	import CaseSections from '$lib/components/CaseSections.svelte';
 	import RealtimeClientDiagram from '$lib/diagrams/RealtimeClientDiagram.svelte';
+	import SeoHead from '$lib/components/SeoHead.svelte';
 	import { entry } from '$lib/content/work';
 
-	const item = entry('001');
+	const item = entry('#01');
 
-	// TODO(review): drawn from the real codebase. Check nothing here is more
-	// specific about the product than you want public.
 	const brief =
 		'A platform that watches a live conversation and produces a continuous read on it, for people rehearsing or reviewing high-stakes calls. A separate analysis engine emits a dense block of signal on every tick. Everything else, the product around it, had to turn that stream into something a person can glance at while their attention is mostly elsewhere.';
 
@@ -27,7 +26,7 @@
 		'Replay scripts re-run a recorded session through the analyzers offline, so a prompt or scoring change can be evaluated against real past sessions instead of by starting a new call.'
 	];
 
-	// TODO(review): scoped from the git record, measured by lines changed.
+	// Scoped from the git record, measured by lines changed.
 	const myPart = [
 		'The frontend, which is the largest single area of the codebase I wrote: the component library, the application routes, the composables, and the typed API client.',
 		'The analysis-session service on the backend, which is the domain core: session lifecycle, the event record, and the contact and observation model around it.',
@@ -48,13 +47,10 @@
 	];
 </script>
 
-<svelte:head>
-	<title>{item.title}, case {item.id}</title>
-	<meta
-		name="description"
-		content="Building the product around a real-time analysis engine: a stable contract with a moving component, and tooling to replay sessions offline."
-	/>
-</svelte:head>
+<SeoHead
+	title="{item.title}, case {item.id}"
+	description="Building the product around a real-time analysis engine: a stable contract with a moving component, and tooling to replay sessions offline."
+/>
 
 <CaseLayout {item}>
 	<CaseSections {brief} {constraints} {howItWorks} {myPart} {outcome} {stack}>

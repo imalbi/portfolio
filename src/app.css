@@ -111,6 +111,15 @@ a:focus-visible {
 	line-height: 1.6;
 }
 
+/* The diagram frames are wider than a phone and scroll sideways, so say so. */
+@media (max-width: 800px) {
+	.scroll-hint::after {
+		content: 'Swipe sideways to see the whole diagram';
+		display: block;
+		margin-top: 0.25rem;
+	}
+}
+
 /* Section label. Used above every major unit. */
 .lbl {
 	font-family: var(--data);

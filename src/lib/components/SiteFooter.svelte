@@ -25,15 +25,19 @@
 	.links {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1.5rem;
+		gap: 0.25rem 1.5rem;
 	}
 	a {
-		text-decoration: none;
-		border-bottom: 1px solid var(--muted);
+		text-decoration: underline;
+		text-decoration-color: var(--muted);
+		text-decoration-thickness: 1px;
+		text-underline-offset: 4px;
+		/* Hit area, so a thumb can land on it (WCAG 2.2 target size). */
+		padding-block: 0.45rem;
 	}
 	a:hover {
 		color: var(--hazard);
-		border-color: var(--hazard);
+		text-decoration-color: var(--hazard);
 	}
 	.place {
 		color: var(--muted);

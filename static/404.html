@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#f4f4f0" />
+		<title>404 Not Found · A. Cerqua</title>
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link
+			rel="preload"
+			href="/fonts/archivo-black-latin-400.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/fonts/plex-mono-latin-400.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<style>
+			@font-face {
+				font-family: 'Archivo Black';
+				src: url('/fonts/archivo-black-latin-400.woff2') format('woff2');
+				font-weight: 400;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'Archivo';
+				src: url('/fonts/archivo-latin-var.woff2') format('woff2');
+				font-weight: 100 900;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'IBM Plex Mono';
+				src: url('/fonts/plex-mono-latin-400.woff2') format('woff2');
+				font-weight: 400;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'IBM Plex Mono';
+				src: url('/fonts/plex-mono-latin-600.woff2') format('woff2');
+				font-weight: 600;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			:root {
+				--paper: #f4f4f0;
+				--ink: #0a0a0a;
+				--muted: #6b6b66;
+				--hazard: #e61919;
+				--gut: clamp(1.5rem, 5vw, 3rem);
+				--display: 'Archivo Black', Arial, sans-serif;
+				--body: 'Archivo', Helvetica, Arial, sans-serif;
+				--data: 'IBM Plex Mono', ui-monospace, monospace;
+			}
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+
+			html {
+				background: var(--paper);
+			}
+
+			body {
+				margin: 0;
+				background: var(--paper);
+				color: var(--ink);
+				font-family: var(--body);
+				font-size: 16px;
+				line-height: 1.55;
+				-webkit-font-smoothing: antialiased;
+				overflow-x: hidden;
+			}
+
+			a {
+				color: inherit;
+			}
+
+			a:focus-visible {
+				outline: 2px solid var(--ink);
+				outline-offset: 3px;
+			}
+
+			.wrap {
+				max-width: 1400px;
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				margin: 0 auto;
+				padding-inline: var(--gut);
+			}
+
+			.hdr {
+				height: 64px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				border-bottom: 1px solid var(--ink);
+			}
+
+			.hdr a {
+				text-decoration: none;
+				font-family: var(--data);
+				text-transform: uppercase;
+			}
+
+			.mark {
+				font-size: 13px;
+				font-weight: 600;
+				letter-spacing: 0.1em;
+			}
+
+			nav {
+				display: flex;
+				gap: 1.75rem;
+			}
+
+			nav a {
+				font-size: 11px;
+				letter-spacing: 0.08em;
+			}
+
+			nav a:hover {
+				color: var(--hazard);
+			}
+
+			.content {
+				padding-block: clamp(4rem, 12vw, 8rem);
+				border-bottom: 1px solid var(--ink);
+			}
+
+			.err-tag {
+				font-family: var(--data);
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				font-size: 12px;
+				color: var(--hazard);
+				margin: 0 0 1rem 0;
+			}
+
+			.title {
+				font-family: var(--display);
+				font-size: clamp(2.5rem, 8vw, 6rem);
+				line-height: 0.9;
+				letter-spacing: -0.04em;
+				text-transform: uppercase;
+				margin: 0 0 1.5rem 0;
+			}
+
+			.desc {
+				font-family: var(--data);
+				color: var(--muted);
+				font-size: 14px;
+				line-height: 1.6;
+				margin: 0 0 2.5rem 0;
+				max-width: 48ch;
+			}
+
+			.back-link {
+				display: inline-block;
+				font-family: var(--data);
+				text-transform: uppercase;
+				font-size: 12px;
+				letter-spacing: 0.08em;
+				text-decoration: none;
+				border: 1px solid var(--ink);
+				padding: 0.75rem 1.25rem;
+				background: var(--ink);
+				color: var(--paper);
+				transition: background 0.15s ease, color 0.15s ease;
+			}
+
+			.back-link:hover {
+				background: var(--hazard);
+				border-color: var(--hazard);
+				color: #ffffff;
+			}
+
+			.ftr {
+				padding-block: 2rem 3rem;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1rem 2rem;
+				justify-content: space-between;
+				font-family: var(--data);
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				font-size: 13px;
+			}
+
+			.links {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1.5rem;
+			}
+
+			.links a {
+				text-decoration: none;
+				border-bottom: 1px solid var(--muted);
+			}
+
+			.links a:hover {
+				color: var(--hazard);
+				border-color: var(--hazard);
+			}
+
+			.place {
+				color: var(--muted);
+				font-size: 11px;
+				letter-spacing: 0.08em;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="hdr">
+				<a class="mark" href="/">A. Cerqua</a>
+				<nav>
+					<a href="/#index">Work</a>
+					<a href="/colophon">Colophon</a>
+				</nav>
+			</header>
+
+			<main class="content">
+				<p class="err-tag">404 / NOT FOUND</p>
+				<h1 class="title">PAGE NOT FOUND</h1>
+				<p class="desc">The requested route does not exist or has been relocated.</p>
+				<div>
+					<a class="back-link" href="/">Back to Index</a>
+				</div>
+			</main>
+
+			<footer class="ftr">
+				<div class="links">
+					<a href="mailto:alberto.cerqua@icloud.com">Email</a>
+					<a href="https://www.linkedin.com/in/alberto-cerqua-433059361/">LinkedIn</a>
+					<a href="https://github.com/imalbi">GitHub</a>
+					<a href="/cv/alberto-cerqua-cv.pdf">CV / PDF</a>
+					<a href="/colophon">Colophon</a>
+				</div>
+				<span class="place">Turin, Italy</span>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -3,37 +3,32 @@
 	import WorkIndex from '$lib/components/WorkIndex.svelte';
 	import OpenSource from '$lib/components/OpenSource.svelte';
 	import Capabilities from '$lib/components/Capabilities.svelte';
+	import SeoHead from '$lib/components/SeoHead.svelte';
 </script>
 
-<svelte:head>
-	<title>Alberto Cerqua, full-stack developer</title>
-	<meta
-		name="description"
-		content="Full-stack developer in Turin. Retrieval pipelines, streamed APIs and production recovery, documented as technical case studies."
-	/>
-	<meta property="og:title" content="Alberto Cerqua, full-stack developer" />
-	<meta
-		property="og:description"
-		content="Retrieval pipelines, streamed APIs and production recovery, documented as technical case studies."
-	/>
-	<meta property="og:image" content="/og.png" />
-	<meta property="og:type" content="website" />
-	<meta name="twitter:card" content="summary_large_image" />
-</svelte:head>
+<SeoHead
+	title="Alberto Cerqua, frontend developer"
+	description="Frontend developer in Turin. Production web and mobile applications, design systems, and edge infrastructure, documented as technical case studies."
+/>
 
 <Masthead />
 
 <section class="sec">
 	<p class="prose">
-		I build web and mobile products end to end. Most of my depth sits where the frontend meets real
-		infrastructure: streamed responses, vector retrieval, schema validation at the boundaries, and
-		legacy code that has to keep running while you fix it.
+		I am a frontend developer building production web and mobile applications, comfortable across the
+		stack. Most of my depth sits where the interface meets real infrastructure: streamed responses,
+		real-time transports, schema validation at the boundaries, and legacy code that has to keep running
+		while you fix it.
+	</p>
+	<p class="prose exp">
+		One year at Efebia (August 2025 to August 2026), progressing from frontend to full-stack across
+		client products.
 	</p>
 </section>
 
+<Capabilities />
 <WorkIndex />
 <OpenSource />
-<Capabilities />
 
 <style>
 	.sec {
@@ -41,5 +36,9 @@
 	}
 	.prose {
 		margin: 0;
+	}
+	.exp {
+		margin-top: 1rem;
+		color: var(--muted);
 	}
 </style>

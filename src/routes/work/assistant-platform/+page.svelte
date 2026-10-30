@@ -2,12 +2,11 @@
 	import CaseLayout from '$lib/components/CaseLayout.svelte';
 	import CaseSections from '$lib/components/CaseSections.svelte';
 	import AssistantPlatformDiagram from '$lib/diagrams/AssistantPlatformDiagram.svelte';
+	import SeoHead from '$lib/components/SeoHead.svelte';
 	import { entry } from '$lib/content/work';
 
-	const item = entry('003');
+	const item = entry('#03');
 
-	// TODO(review): drawn from the real codebase. Check nothing here is more
-	// specific about the product than you want public.
 	const brief =
 		"An enterprise conversational assistant, integrated with a CRM, that answers from each client company's own documents and follows that company's own rules. One deployment serves every company, configured by administrators rather than developers, which is the constraint the whole design hangs off.";
 
@@ -28,7 +27,7 @@
 		'The answer streams over server-sent events. The frontend is built as a static bundle and served by the same backend process, so there is one deployable rather than two.'
 	];
 
-	// TODO(review): scoped from the git record, measured by lines changed.
+	// Scoped from the git record, measured by lines changed.
 	const myPart = [
 		'The frontend, which is my largest area in this codebase: the SvelteKit application, its component and API layers, and the admin surfaces for configuring companies and their documents.',
 		'Backend service and route work across the platform, and a share of the second backend service.',
@@ -52,13 +51,10 @@
 	];
 </script>
 
-<svelte:head>
-	<title>{item.title}, case {item.id}</title>
-	<meta
-		name="description"
-		content="One deployment serving every client company with its own rules and its own documents, configured by administrators rather than developers."
-	/>
-</svelte:head>
+<SeoHead
+	title="{item.title}, case {item.id}"
+	description="One deployment serving every client company with its own rules and its own documents, configured by administrators rather than developers."
+/>
 
 <CaseLayout {item}>
 	<CaseSections {brief} {constraints} {howItWorks} {myPart} {outcome} {stack}>

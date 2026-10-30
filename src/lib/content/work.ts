@@ -9,19 +9,20 @@ export interface WorkEntry {
 	period: string;
 	/** Generic sector label. Never a client name. */
 	sector: string;
+	/** Optional public URL to the live deployment */
+	url?: string;
 }
 
 /*
- * TODO(review): the `role`, `period` and `sector` fields are claims about what
- * Alberto actually did, not about technology. Check each one before this ships.
- *
- * Roles are written from the git record, measured by lines changed rather than
- * commit count, and scoped to the areas he actually wrote. On teams of two or
- * three, saying which part was yours reads better than implying all of it was.
+ * The `role`, `period` and `sector` fields are claims about what Alberto
+ * actually did, not about technology. Roles are written from the git record,
+ * measured by lines changed rather than commit count, and scoped to the areas
+ * he actually wrote. On teams of two or three, saying which part was yours
+ * reads better than implying all of it was.
  */
 export const work: WorkEntry[] = [
 	{
-		id: '001',
+		id: '#01',
 		title: 'Realtime Client',
 		href: '/work/realtime-client',
 		stack: 'SvelteKit / LiveKit / Fastify',
@@ -30,7 +31,7 @@ export const work: WorkEntry[] = [
 		sector: 'Real-time analysis platform'
 	},
 	{
-		id: '002',
+		id: '#02',
 		title: 'Production Recovery',
 		href: '/work/recovery',
 		stack: 'React Native / Expo / TanStack Query',
@@ -39,13 +40,23 @@ export const work: WorkEntry[] = [
 		sector: 'Consumer mobile app'
 	},
 	{
-		id: '003',
+		id: '#03',
 		title: 'Assistant Platform',
 		href: '/work/assistant-platform',
 		stack: 'SvelteKit / Fastify / pgvector',
 		role: 'Frontend lead, two-developer team',
 		period: '2025 to 2026',
 		sector: 'Enterprise AI assistant'
+	},
+	{
+		id: '#04',
+		title: 'Personal Trainer Landing',
+		href: '/work/personal-trainer-landing',
+		stack: 'Next.js / Cloudflare Workers / Tailwind',
+		role: 'Solo designer and developer',
+		period: '2026',
+		sector: 'Personal training and kinesiology',
+		url: 'https://chinesiologa.alessiaalfano.workers.dev'
 	}
 ];
 

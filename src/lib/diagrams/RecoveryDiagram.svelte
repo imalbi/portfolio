@@ -54,7 +54,7 @@
 			</g>
 		</svg>
 	</div>
-	<figcaption class="m muted">Fig. 1 / What changed, in red</figcaption>
+	<figcaption class="m muted scroll-hint">Fig. 1 / What changed, in red</figcaption>
 </figure>
 
 <style>

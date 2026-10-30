@@ -48,4 +48,31 @@
 		width: 1%;
 		padding-right: 2.5rem;
 	}
+
+	/* One column on a phone: the tech above its role, so nothing scrolls sideways. */
+	@media (max-width: 760px) {
+		table,
+		tbody {
+			display: block;
+		}
+		tr {
+			display: block;
+			padding-block: 0.85rem;
+			border-bottom: 1px solid var(--ink);
+		}
+		tr:last-child {
+			border-bottom: none;
+		}
+		td {
+			display: block;
+			padding: 0;
+			border-bottom: none;
+		}
+		.tech {
+			white-space: normal;
+			width: auto;
+			padding-right: 0;
+			padding-bottom: 0.3rem;
+		}
+	}
 </style>

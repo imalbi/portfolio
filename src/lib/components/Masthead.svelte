@@ -6,8 +6,8 @@
 	</div>
 
 	<div class="meta">
-		<span class="role">Full-stack developer</span>
-		<span class="status muted">Open to opportunities</span>
+		<span class="role">Frontend developer</span>
+		<span class="status muted">Open to opportunities / Turin hybrid or remote</span>
 	</div>
 </section>
 
