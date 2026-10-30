@@ -24,3 +24,6 @@ vite.config.ts.timestamp-*
 
 # Planning artifacts (not part of the shipped project)
 docs/superpowers/
+
+# Client material (zips, screenshots), never public
+docs/showcase/

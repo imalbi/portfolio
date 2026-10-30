@@ -1,42 +1,48 @@
-# sv
+# Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Personal site of Alberto Cerqua: case studies from client work, written as short technical documents. Live at https://imalbi.pages.dev.
 
-## Creating a project
+![Cover sheet of the site](docs/screenshot.webp)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Stack
 
-```sh
-# create a new project
-npx sv create my-app
-```
+- SvelteKit 2 and Svelte 5 with `adapter-static`. Every route is prerendered and `csr` is off, so the site ships no JavaScript.
+- Hand-written CSS with custom properties for the tokens. No CSS framework.
+- Archivo, Archivo Black and IBM Plex Mono, self-hosted as latin woff2 subsets.
+- Hosted on Cloudflare Pages.
 
-To recreate this project with the same configuration:
+Case study copy lives in the route components and `src/lib/content/work.ts`. The architecture diagrams are hand-authored SVG.
 
-```sh
-# recreate this project
-npx sv@0.17.0 create --template minimal --types ts --install npm .
-```
+## Commands
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Needs Node 22.12 or newer.
 
 ```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm install
+npm run dev       # dev server
+npm run build     # static build into build/
+npm run preview   # serve the build
+npm run check     # svelte-check
+npm test          # build, then vitest against the output
+npm run deploy    # build and publish to the `imalbi` Pages project (needs a wrangler login)
 ```
 
-## Building
+## Tests
 
-To create a production version of your app:
+`npm test` builds the site and checks the output: every route is prerendered, no JavaScript reaches the browser, and no external font host is referenced. It also scans the source for the copy rules and for unresolved content markers.
 
-```sh
-npm run build
+## Layout
+
+```
+src/routes       pages
+src/lib          components, diagrams, content
+static           fonts, CV, images, 404 page
+tests            vitest
+docs/reference   the design mockup and the font files it was built from
 ```
 
-You can preview the production build with `npm run preview`.
+## License
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Copyright 2026 Alberto Cerqua. All rights reserved. The source is public so it can be read, not reused or redistributed.
+
+The fonts are separate works under the SIL Open Font License 1.1. Their notices are in `static/fonts/OFL.txt`.
