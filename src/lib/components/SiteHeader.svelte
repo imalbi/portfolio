@@ -2,7 +2,8 @@
 	<a class="mark" href="/">A. Cerqua</a>
 	<nav>
 		<a href="/#index">Work</a>
-		<a href="/colophon">Colophon</a>
+		<a href="/cv/alberto-cerqua-cv.pdf">CV</a>
+		<a href="mailto:alberto.cerqua@icloud.com">Email</a>
 	</nav>
 </header>
 
@@ -33,6 +34,9 @@
 	nav a {
 		font-size: 11px;
 		letter-spacing: 0.08em;
+		/* "CV" alone is narrower than the 24px WCAG 2.2 target size. */
+		min-width: 24px;
+		text-align: center;
 	}
 	nav a:hover {
 		color: var(--hazard);
